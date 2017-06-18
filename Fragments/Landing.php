@@ -58,9 +58,10 @@ if($_SESSION['is_logged'] == FALSE){
 			<ul>
 				<li class="cd-label">User Navigations</li>
 				<li class="active" id="limainpagee"><a href="#0" id="mainpagee">Main Page</a></li>
+				<li class="" id="libookflight"><a href="#0" id="bookfligt">Book a Flight</a></li>
 				<li class="" id="libookpackage"><a href="#0" id="bookpackage">Book a Package</a></li>
 				<li class="" id="limanagebooking"><a href="#0" id="managebooking">Manage Booking</a></li>
-				<li class="" id="licheckin"><a href="#0" id="checkin">Check In</a></li>
+				<li class="" id="lipakitomiles"><a href="#0" id="pakitomiles">Pakito Miles</a></li>
 				<li class="" id="liflightstatus"><a href="#0" id="flightstatus">Flight Status</a></li>
 			</ul>
 
@@ -81,6 +82,12 @@ if($_SESSION['is_logged'] == FALSE){
 				<?php include 'MainDiv/Main.php'; ?>
 			</div>
 
+			<div class="container-fluid divMain" id="BookFlight" style="height: 100%; display:  none;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><h1>Trial 2</h1></div>
+				<div class="col-md-4"></div>
+			</div>
+
 			<div class="container-fluid divMain" id="BookPackage" style="height: 100%; display:  none;">
 				<?php include 'MainDiv/BookPackage.php'; ?>
 			</div>
@@ -91,7 +98,7 @@ if($_SESSION['is_logged'] == FALSE){
 				<div class="col-md-4"></div>
 			</div>
 
-			<div class="container-fluid divMain" id="CheckIn" style="height: 100%; display:  none;">
+			<div class="container-fluid divMain" id="PakitoMiles" style="height: 100%; display:  none;">
 				<div class="col-md-4"></div>
 				<div class="col-md-4"><h1>Trial 4</h1></div>
 				<div class="col-md-4"></div>
@@ -153,8 +160,9 @@ if($_SESSION['is_logged'] == FALSE){
 		var varMainPage = document.getElementById('MainPage');
 		var varBookPackage = document.getElementById('BookPackage');
 		var varManageBooking = document.getElementById('ManageBooking');
+		var varBookFlight = document.getElementById('BookFlight');
 
-		var varCheckIn = document.getElementById('CheckIn');
+		var varPakitoMiles = document.getElementById('PakitoMiles');
 		var varFlighStatus = document.getElementById('FlighStatus');
 		var varAnnouncement = document.getElementById('Announcement');
 		var varFAQ = document.getElementById('FAQ');
@@ -167,8 +175,9 @@ if($_SESSION['is_logged'] == FALSE){
 				// active css toggle
 				$("#limainpagee").addClass('active');
 				$("#limanagebooking").removeClass('active');
+				$("#libookflight").removeClass('active');
 				$("#libookpackage").removeClass('active');
-				$("#licheckin").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
 				$("#liflightstatus").removeClass('active');
 				$("#liannouncements").removeClass('active');
 				$("#lifaqs").removeClass('active');
@@ -177,7 +186,8 @@ if($_SESSION['is_logged'] == FALSE){
 				if (varMainPage.style.display === 'none') {
 					$(varMainPage).fadeIn("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
-					$(varCheckIn).fadeOut("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
@@ -196,8 +206,9 @@ if($_SESSION['is_logged'] == FALSE){
 				// active css toggle
 				$("#libookpackage").addClass('active');
 				$("#limainpagee").removeClass('active');
+				$("#libookflight").removeClass('active');
 				$("#limanagebooking").removeClass('active');
-				$("#licheckin").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
 				$("#liflightstatus").removeClass('active');
 				$("#liannouncements").removeClass('active');
 				$("#lifaqs").removeClass('active');
@@ -206,7 +217,8 @@ if($_SESSION['is_logged'] == FALSE){
 				if (varBookPackage.style.display === 'none') {
 					$(varBookPackage).fadeIn("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
-					$(varCheckIn).fadeOut("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
@@ -224,8 +236,9 @@ if($_SESSION['is_logged'] == FALSE){
 				// active css toggle
 				$("#limanagebooking").addClass('active');
 				$("#libookpackage").removeClass('active');
+				$("#libookflight").removeClass('active');
 				$("#limainpagee").removeClass('active');
-				$("#licheckin").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
 				$("#liflightstatus").removeClass('active');
 				$("#liannouncements").removeClass('active');
 				$("#lifaqs").removeClass('active');
@@ -234,7 +247,8 @@ if($_SESSION['is_logged'] == FALSE){
 				if (varManageBooking.style.display === 'none') {
 					$(varManageBooking).fadeIn("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
-					$(varCheckIn).fadeOut("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
@@ -247,21 +261,23 @@ if($_SESSION['is_logged'] == FALSE){
 			});
 
 			//CheckIn nav onclick
-			$("#checkin").click(function(){
+			$("#pakitomiles").click(function(){
 
 				// active css toggle
-				$("#licheckin").addClass('active');
+				$("#lipakitomiles").addClass('active');
 				$("#limanagebooking").removeClass('active');
 				$("#libookpackage").removeClass('active');
 				$("#limainpagee").removeClass('active');
+				$("#libookflight").removeClass('active');
 				$("#liflightstatus").removeClass('active');
 				$("#liannouncements").removeClass('active');
 				$("#lifaqs").removeClass('active');
 				$("#licustomerservice").removeClass('active');
 				//
-				if (varCheckIn.style.display === 'none') {
-					$(varCheckIn).fadeIn("slow"); 
+				if (varPakitoMiles.style.display === 'none') {
+					$(varPakitoMiles).fadeIn("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
@@ -279,8 +295,9 @@ if($_SESSION['is_logged'] == FALSE){
 
 				// active css toggle
 				$("#liflightstatus").addClass('active');
-				$("#licheckin").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
 				$("#limanagebooking").removeClass('active');
+				$("#libookflight").removeClass('active');
 				$("#libookpackage").removeClass('active');
 				$("#limainpagee").removeClass('active');
 				$("#liannouncements").removeClass('active');
@@ -289,7 +306,8 @@ if($_SESSION['is_logged'] == FALSE){
 				//
 				if (varFlighStatus.style.display === 'none') {
 					$(varFlighStatus).fadeIn("slow"); 
-					$(varCheckIn).fadeOut("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
@@ -308,7 +326,8 @@ if($_SESSION['is_logged'] == FALSE){
 				// active css toggle
 				$("#liannouncements").addClass('active');
 				$("#liflightstatus").removeClass('active');
-				$("#licheckin").removeClass('active');
+				$("#libookflight").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
 				$("#limanagebooking").removeClass('active');
 				$("#libookpackage").removeClass('active');
 				$("#limainpagee").removeClass('active');
@@ -317,8 +336,9 @@ if($_SESSION['is_logged'] == FALSE){
 				//
 				if (varFlighStatus.style.display === 'none') {
 					$(varAnnouncement).fadeIn("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
-					$(varCheckIn).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
@@ -338,7 +358,8 @@ if($_SESSION['is_logged'] == FALSE){
 				$("#lifaqs").addClass('active');
 				$("#liannouncements").removeClass('active');
 				$("#liflightstatus").removeClass('active');
-				$("#licheckin").removeClass('active');
+				$("#libookflight").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
 				$("#limanagebooking").removeClass('active');
 				$("#libookpackage").removeClass('active');
 				$("#limainpagee").removeClass('active');
@@ -346,9 +367,10 @@ if($_SESSION['is_logged'] == FALSE){
 				//
 				if (varFAQ.style.display === 'none') {
 					$(varFAQ).fadeIn("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
-					$(varCheckIn).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
@@ -367,17 +389,50 @@ if($_SESSION['is_logged'] == FALSE){
 				$("#lifaqs").removeClass('active');
 				$("#liannouncements").removeClass('active');
 				$("#liflightstatus").removeClass('active');
-				$("#licheckin").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
+				$("#libookflight").removeClass('active');
 				$("#limanagebooking").removeClass('active');
 				$("#libookpackage").removeClass('active');
 				$("#limainpagee").removeClass('active');
 				//
 				if (varCustomerService.style.display === 'none') {
 					$(varCustomerService).fadeIn("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
-					$(varCheckIn).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+			//Book a flight nav onclick
+				$("#bookfligt").click(function(){
+
+				// active css toggle
+				$("#libookflight").addClass('active');
+				$("#licustomerservice").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				//
+				if (varBookFlight.style.display === 'none') {
+					$(varBookFlight).fadeIn("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
