@@ -57,18 +57,18 @@ if($_SESSION['is_logged'] == FALSE){
 		<nav class="cd-side-nav">
 			<ul>
 				<li class="cd-label">User Navigations</li>
-				<li class=""><a href="#0" id="mainpagee">Main Page</a></li>
-				<li class="active"><a href="#0" id="bookpackage">Book a Package</a></li>
-				<li class=""><a href="#0" id="managebooking">Manage Booking</a></li>
-				<li class=""><a href="#0" id="checkin">Check In</a></li>
-				<li class=""><a href="#0" id="flightstatus">Flight Status</a></li>
+				<li class="active" id="limainpagee"><a href="#0" id="mainpagee">Main Page</a></li>
+				<li class="" id="libookpackage"><a href="#0" id="bookpackage">Book a Package</a></li>
+				<li class="" id="limanagebooking"><a href="#0" id="managebooking">Manage Booking</a></li>
+				<li class="" id="licheckin"><a href="#0" id="checkin">Check In</a></li>
+				<li class="" id="liflightstatus"><a href="#0" id="flightstatus">Flight Status</a></li>
 			</ul>
 
 			<ul>
 				<li class="cd-label">Quick Links</li>
-				<li class=""><a href="#0" id="announcements">Announcements</a></li>
-				<li class=""><a href="#0" id="faqs">FAQs</a></li>
-				<li class=""><a href="#0" id="customerservice">Customer Service</a></li>
+				<li class="" id="liannouncements"><a href="#0" id="announcements">Announcements</a></li>
+				<li class="" id="lifaqs"><a href="#0" id="faqs">FAQs</a></li>
+				<li class="" id="licustomerservice"><a href="#0" id="customerservice">Customer Service</a></li>
 			</ul>
 
 			
@@ -88,7 +88,43 @@ if($_SESSION['is_logged'] == FALSE){
 				<div class="col-md-4"><h1>Trial 2</h1></div>
 				<div class="col-md-4"></div>
 			</div>
+			
+			<div class="container-fluid divMain" id="ManageBooking" style="height: 100%; display:  none;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><h1>Trial 3</h1></div>
+				<div class="col-md-4"></div>
+			</div>
 
+			<div class="container-fluid divMain" id="CheckIn" style="height: 100%; display:  none;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><h1>Trial 4</h1></div>
+				<div class="col-md-4"></div>
+			</div>
+
+			<div class="container-fluid divMain" id="FlighStatus" style="height: 100%; display:  none;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><h1>Trial 5</h1></div>
+				<div class="col-md-4"></div>
+			</div>
+
+			<div class="container-fluid divMain" id="Announcement" style="height: 100%; display:  none;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><h1>Trial 6</h1></div>
+				<div class="col-md-4"></div>
+			</div>
+
+
+			<div class="container-fluid divMain" id="FAQ" style="height: 100%; display:  none;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><h1>Trial 7</h1></div>
+				<div class="col-md-4"></div>
+			</div>
+
+			<div class="container-fluid divMain" id="CustomerService" style="height: 100%; display:  none;">
+				<div class="col-md-4"></div>
+				<div class="col-md-4"><h1>Trial 8</h1></div>
+				<div class="col-md-4"></div>
+			</div>
 
 
 		</div>
@@ -102,23 +138,234 @@ if($_SESSION['is_logged'] == FALSE){
 
 		var varMainPage = document.getElementById('MainPage');
 		var varBookPackage = document.getElementById('BookPackage');
+		var varManageBooking = document.getElementById('ManageBooking');
+
+		var varCheckIn = document.getElementById('CheckIn');
+		var varFlighStatus = document.getElementById('FlighStatus');
+		var varAnnouncement = document.getElementById('Announcement');
+		var varFAQ = document.getElementById('FAQ');
+		var varCustomerService = document.getElementById('CustomerService');
+
 		$(document).ready(function(){
 
 			//Main nav onclick
 			$("#mainpagee").click(function(){
+				// active css toggle
+				$("#limainpagee").addClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#licheckin").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				//
 				if (varMainPage.style.display === 'none') {
 					$(varMainPage).fadeIn("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varCheckIn).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 
-				} else { 
+				} else { 	
+
 				}
 			});
 
 
 			//BookPackage nav onclick
 			$("#bookpackage").click(function(){
+
+				// active css toggle
+				$("#libookpackage").addClass('active');
+				$("#limainpagee").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#licheckin").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				//
 				if (varBookPackage.style.display === 'none') {
 					$(varBookPackage).fadeIn("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varCheckIn).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+			//ManageBooking nav onclick
+			$("#managebooking").click(function(){
+
+				// active css toggle
+				$("#limanagebooking").addClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				$("#licheckin").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				//
+				if (varManageBooking.style.display === 'none') {
+					$(varManageBooking).fadeIn("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varCheckIn).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+			//CheckIn nav onclick
+			$("#checkin").click(function(){
+
+				// active css toggle
+				$("#licheckin").addClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				//
+				if (varCheckIn.style.display === 'none') {
+					$(varCheckIn).fadeIn("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+			//FlightStatus nav onclick
+			$("#flightstatus").click(function(){
+
+				// active css toggle
+				$("#liflightstatus").addClass('active');
+				$("#licheckin").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				//
+				if (varFlighStatus.style.display === 'none') {
+					$(varFlighStatus).fadeIn("slow"); 
+					$(varCheckIn).fadeOut("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+			//Announcement nav onclick
+			$("#announcements").click(function(){
+
+				// active css toggle
+				$("#liannouncements").addClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#licheckin").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				//
+				if (varFlighStatus.style.display === 'none') {
+					$(varAnnouncement).fadeIn("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varCheckIn).fadeOut("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+
+			//FAQs nav onclick
+			$("#faqs").click(function(){
+
+				// active css toggle
+				$("#lifaqs").addClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#licheckin").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				//
+				if (varFAQ.style.display === 'none') {
+					$(varFAQ).fadeIn("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varCheckIn).fadeOut("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+				//Customer Service nav onclick
+			$("#customerservice").click(function(){
+
+				// active css toggle
+				$("#licustomerservice").addClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#licheckin").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				//
+				if (varCustomerService.style.display === 'none') {
+					$(varCustomerService).fadeIn("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varCheckIn).fadeOut("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
