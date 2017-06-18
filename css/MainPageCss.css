@@ -59,3 +59,6 @@
 .btn-primary:hover{
 	color: #fdb818;
 }
+.dropdown-menu li a {
+	color: black !important;
+}
