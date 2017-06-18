@@ -83,9 +83,7 @@ if($_SESSION['is_logged'] == FALSE){
 			</div>
 
 			<div class="container-fluid divMain" id="BookFlight" style="height: 100%; display:  none;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial 2</h1></div>
-				<div class="col-md-4"></div>
+				<?php include 'MainDiv/BookFlight.php'; ?>
 			</div>
 
 			<div class="container-fluid divMain" id="BookPackage" style="height: 100%; display:  none;">
@@ -412,7 +410,7 @@ if($_SESSION['is_logged'] == FALSE){
 			});
 
 			//Book a flight nav onclick
-				$("#bookfligt").click(function(){
+			$("#bookfligt").click(function(){
 
 				// active css toggle
 				$("#libookflight").addClass('active');
@@ -428,7 +426,6 @@ if($_SESSION['is_logged'] == FALSE){
 				if (varBookFlight.style.display === 'none') {
 					$(varBookFlight).fadeIn("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
-					$(varBookFlight).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFlighStatus).fadeOut("slow"); 
@@ -443,8 +440,8 @@ if($_SESSION['is_logged'] == FALSE){
 			});
 
 
-			});
+		});
 
-		</script>
-	</body>
-	</html>
+	</script>
+</body>
+</html>
