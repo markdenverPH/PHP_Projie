@@ -1,7 +1,5 @@
 
 
-
-
 $(document).ready(function(){
     var x = $(window).height();
     var xNav = $(".cd-primary-nav").height();
