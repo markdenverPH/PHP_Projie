@@ -82,9 +82,7 @@ if($_SESSION['is_logged'] == FALSE){
 			</div>
 
 			<div class="container-fluid divMain" id="BookPackage" style="height: 100%; display:  none;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial 2</h1></div>
-				<div class="col-md-4"></div>
+				<?php include 'MainDiv/BookPackage.php'; ?>
 			</div>
 			
 			<div class="container-fluid divMain" id="ManageBooking" style="height: 100%; display:  none;">

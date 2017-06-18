@@ -16,7 +16,7 @@
 	transition: margin-left 2s;
 }
 .BannMsg:hover{
-
+	font-weight: 700;
 	margin-left: 100px;
 }
 .CardStyle{
@@ -27,4 +27,9 @@
 
 .card-title{
 	font-weight: 700	 !important;
+}
+
+.cardImage{
+	border-radius: 5px;
+	width: 100%;
 }
