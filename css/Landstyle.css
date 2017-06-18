@@ -8,36 +8,36 @@ Primary style
 }
 
 html {
-  font-size: 62.5%;
+  font-size: 62.5% !important;
 }
 
 body {
-  font-size: 1.6rem;
-  font-family: "Open Sans", sans-serif;
-  color: #3e454c;
-  background-color: #ffffff;
+  font-size: 1.6rem !important;
+  font-family: "Open Sans", sans-serif !important;
+  color: #3e454c !important;
+  background-color: #ffffff !important;
 }
 body::after {
-  clear: both;
-  content: "";
-  display: table;
+  clear: both !important;
+  content: "" !important;
+  display: table !important;
 }
 
 a {
-  color: #1784c7;
-  text-decoration: none;
+  color: #fff !important;
+  text-decoration: none !important;
 }
 
 input {
-  font-family: "Open Sans", sans-serif;
-  font-size: 1.6rem;
+  font-family: "Open Sans", sans-serif !important;
+  font-size: 1.6rem  !important;
 }
 
 input[type="search"]::-webkit-search-decoration,
 input[type="search"]::-webkit-search-cancel-button,
 input[type="search"]::-webkit-search-results-button,
 input[type="search"]::-webkit-search-results-decoration {
-  display: none;
+  display: none !important;
 }
 
 /* -------------------------------- 
@@ -50,7 +50,6 @@ Main Page Content
 }
 .cd-main-content .content-wrapper h1 {
   text-align: center;
-  padding: 3em 0;
   font-size: 2rem;
 }
 .cd-main-content::before {
@@ -64,7 +63,6 @@ Main Page Content
     padding-top: 55px;
   }
   .cd-main-content .content-wrapper h1 {
-    padding: 4em 0;
     font-size: 3.2rem;
     font-weight: 300;
   }
