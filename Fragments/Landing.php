@@ -78,9 +78,7 @@ if($_SESSION['is_logged'] == FALSE){
 		<div class="content-wrapper">
 			<?php include('MainLinks.html'); ?> 
 			<div class="container-fluid divMain" id="MainPage" style="height: 100%;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial</h1></div>
-				<div class="col-md-4"></div>
+				<?php include 'MainDiv/Main.php'; ?>
 			</div>
 
 			<div class="container-fluid divMain" id="BookPackage" style="height: 100%; display:  none;">
@@ -132,6 +130,24 @@ if($_SESSION['is_logged'] == FALSE){
 	<script src="../js/jquery-2.1.4.js"></script>
 	<script src="../js/jquery.menu-aim.js"></script>
 	<script src="../js/Landingmain.js"></script> 
+	<script src="../js/WebScript.js"></script> 
+	<!-- Script for slideshow -->
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#slideshow > div:gt(0)").hide();
+
+			setInterval(function() { 
+				$('#slideshow > div:first')
+				.fadeOut(1000)
+				.next()
+				.fadeIn(1000)
+				.end()
+				.appendTo('#slideshow');
+			},  3000);
+		});
+
+
+	</script>
 
 	<!--  Script to execute fading animation	 -->
 	<script type="text/javascript">
@@ -346,7 +362,7 @@ if($_SESSION['is_logged'] == FALSE){
 			});
 
 				//Customer Service nav onclick
-			$("#customerservice").click(function(){
+				$("#customerservice").click(function(){
 
 				// active css toggle
 				$("#licustomerservice").addClass('active');
@@ -374,8 +390,8 @@ if($_SESSION['is_logged'] == FALSE){
 			});
 
 
-		});
+			});
 
-	</script>
-</body>
-</html>
+		</script>
+	</body>
+	</html>

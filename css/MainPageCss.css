@@ -1,3 +1,30 @@
-.divMain{
+#slideshow { 
+	margin: 30px auto; 
+	position: relative; 
+	height  : 400px; 
+	width: 100%; 
+	padding: 10px; 
+}
 
+#slideshow > div { 
+	position: absolute; 
+	left: 10px; 
+	right: 10px; 
+	bottom: 10px; 
+}
+.BannMsg{
+	transition: margin-left 2s;
+}
+.BannMsg:hover{
+
+	margin-left: 100px;
+}
+.CardStyle{
+	border: 1px solid #34495e;
+	border-radius: 5px;
+	padding: 20px;
+}
+
+.card-title{
+	font-weight: 700	 !important;
 }
