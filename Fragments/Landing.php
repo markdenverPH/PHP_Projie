@@ -45,7 +45,8 @@ if($_SESSION['is_logged'] == FALSE){
 
 						<li><a href="#0">My Account</a></li>
 						<li><a href="#0">Edit Account</a></li>
-						
+
+						<li><a href="logout.php">Logout</a></li>						
 					</ul>
 				</li>
 			</ul>
@@ -57,13 +58,15 @@ if($_SESSION['is_logged'] == FALSE){
 			<ul>
 				<li class="cd-label">User Navigations</li>
 				<li class=""><a href="#0">Main Page</a></li>
-				<li class=" active"><a href="#0">Notifications</a></li>
-				<li class=""><a href="#0">Comments</a></li>
+				<li class="active"><a href="#0">Book a Package</a></li>
+				<li class=""><a href="#0">Manage Booking</a></li>
+				<li class=""><a href="#0">Check In</a></li>
+				<li class=""><a href="#0">Flight Status</a></li>
 			</ul>
 
 			<ul>
 				<li class="cd-label">Secondary</li>
-				<li class="has-children bookmarks">
+				<li class="has-children ">
 					<a href="#0">Bookmarks</a>
 					
 					<ul>
@@ -72,7 +75,7 @@ if($_SESSION['is_logged'] == FALSE){
 						<li><a href="#0">Import Bookmark</a></li>
 					</ul>
 				</li>
-				<li class="has-children images">
+				<li class="has-children ">
 					<a href="#0">Images</a>
 					
 					<ul>
@@ -81,7 +84,7 @@ if($_SESSION['is_logged'] == FALSE){
 					</ul>
 				</li>
 
-				<li class="has-children users">
+				<li class="has-children ">
 					<a href="#0">Users</a>
 					
 					<ul>
@@ -92,12 +95,7 @@ if($_SESSION['is_logged'] == FALSE){
 				</li>
 			</ul>
 
-			<ul>
-				<li class="cd-label">Action</li>
-				<form action="logout.php" method="post">
-					<input type="submit" class="action-btn" name="" value="Logout">
-				</form>
-			</ul>
+			
 		</nav>
 
 		<div class="content-wrapper">
