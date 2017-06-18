@@ -16,8 +16,7 @@
 	transition: margin-left 2s;
 }
 .BannMsg:hover{
-
-	margin-left: 100px;
+	margin-left: 50px;
 }
 .CardStyle{
 	border: 1px solid #34495e;
@@ -26,5 +25,37 @@
 }
 
 .card-title{
-	font-weight: 700	 !important;
+	font-weight: 700!important;
+}
+
+.cardImage{
+	border-radius: 5px;
+	width: 100%;
+}
+
+.CardPackage{
+	height: 120px;
+}
+.CardPackage:hover{
+	 margin-left: 50px;
+}
+.list-group-item{
+	font-weight: 700 !important;
+}
+.listClass{
+	padding-left: 3rem;
+}
+.listClassHead{
+	text-align: center;
+	background-color: #fdb818;
+}
+.HeadGlyph{
+	margin-right: 10px;
+}
+.btn-primary{
+	background-color: #22205f !important;
+	transition: color 0.5s;
+}
+.btn-primary:hover{
+	color: #fdb818;
 }
