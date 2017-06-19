@@ -1,0 +1,31 @@
+         
+<option value="BCD">Bacolod  (BCD)</option>                             
+<option value="BSO">Basco (Batanes) (BSO)</option>            
+<option value="USU">Busuanga (Coron) (USU)</option>
+<option value="BXU">Butuan  (BXU)</option>         
+<option value="CGY">Cagayan de Oro  (CGY)</option>        
+<option value="CYP">Calbayog  (CYP)</option>           
+<option value="CRM">Catarman  (CRM)</option>        
+<option value="MPH">Caticlan (Boracay) (MPH)</option>     
+<option value="CEB">Cebu  (CEB)</option>                        
+<option value="CRK">Clark  (CRK)</option>                               
+<option value="CBO">Cotabato  (CBO)</option>                            
+<option value="DVO">Davao  (DVO)</option>                    
+<option value="DPL">Dipolog  (DPL)</option>                
+<option value="DGT">Dumaguete  (DGT)</option>          
+<option value="GES">General Santos  (GES)</option>              
+<option value="ILO">Iloilo  (ILO)</option>             
+<option value="KLO">Kalibo  (KLO)</option>        
+<option value="LAO">Laoag  (LAO)</option>         
+<option value="LGP" >Legazpi  (LGP)</option>        
+<option value="MNL" selected="">Manila  (MNL)</option>   
+<option value="MBT">Masbate  (MBT)</option>        
+<option value="WNP">Naga  (WNP)</option>          
+<option value="OZC">Ozamiz  (OZC)</option>     
+<option value="PPS">Puerto Princesa  (PPS)</option>       
+<option value="RXS">Roxas  (RXS)</option>                     
+<option value="SUG">Surigao  (SUG)</option>                     
+<option value="TAC">Tacloban  (TAC)</option>          
+<option value="TAG">Tagbilaran (Bohol) (TAG)</option>           
+<option value="TUG">Tuguegarao  (TUG)</option>       
+<option value="ZAM">Zamboanga  (ZAM)</option>
