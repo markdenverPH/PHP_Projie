@@ -102,7 +102,6 @@ Just testing
 
 
 
-
 	<script>
 		function myMap() {
 			var mapProp= {
@@ -282,7 +281,6 @@ Just testing
 					$(x_3).fadeOut("slow");
 				}
 			});
-
 
 
 

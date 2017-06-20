@@ -134,9 +134,61 @@ if($_SESSION['is_logged'] == FALSE){
 	<script src="../js/jquery.menu-aim.js"></script>
 	<script src="../js/Landingmain.js"></script> 
 	<script src="../js/WebScript.js"></script> 
+	<script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#reset").click(function() {
+				$(this).closest('form').find("input[type=text], textarea").val("");
+				$(this).closest('form').find("input[type=number], textarea").val(null);
+				$(this).closest('form').find("select, option").val(null);
+			});
+		});
+	</script>
+
+
+	<script type="text/javascript">
+		$('.form_datetime').datetimepicker({
+        //language:  'fr',
+        weekStart: 1,
+        todayBtn:  1,
+        autoclose: 1,
+        todayHighlight: 1,
+        startView: 2,
+        forceParse: 0,
+        showMeridian: 1
+    });
+		$('.form_date').datetimepicker({
+			language:  'fr',
+			weekStart: 1,
+			todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 2,
+			minView: 2,
+			forceParse: 0
+		});
+		$('.form_time').datetimepicker({
+			language:  'fr',
+			weekStart: 1,
+			todayBtn:  1,
+			autoclose: 1,
+			todayHighlight: 1,
+			startView: 1,
+			minView: 0,
+			maxView: 1,
+			forceParse: 0
+		});
+	</script>
+
+
 	<!-- Script for slideshow -->
 	<script type="text/javascript">
 		$(document).ready(function(){
+
 			$("#slideshow > div:gt(0)").hide();
 
 			setInterval(function() { 
