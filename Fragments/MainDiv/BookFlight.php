@@ -72,7 +72,11 @@
 
 </div>
 <div class="col-md-4">
-	<button type="button" style="width: 60%; background: #22205f; color: white" class="btn col-centered">Check Flight</button>
+	<center>	
+		<button type="submit" style="width: 60%; background: #22205f; color: white" class="btn col-centered ">Check Flight</button>
+		<br><br>
+		<button type="button" id="reset" style="width: 60%; color: white" class="btn btn-danger ">Clear</button>
+	</center>
 </div>
 </div>
 </form>
