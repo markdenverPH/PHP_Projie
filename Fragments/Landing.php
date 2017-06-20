@@ -231,6 +231,7 @@ if($_SESSION['is_logged'] == FALSE){
 			$("#checkBtn").click(function(){
 				var $dateFrom = $('#dateFrom').val();
 				var $dateTo = $('#dateTo').val();
+
 				if($descTo == $descFrom ||  $descTo == null || $descFrom == null){
 					$("#divFrom").addClass('btn-danger');
 					$("#divTo").addClass('btn-danger');
@@ -251,7 +252,7 @@ if($_SESSION['is_logged'] == FALSE){
 				}else{
 					$("#dateTo").removeClass('btn-danger');
 				}
-				if ($dateFrom == $dateTo) {
+				if ($dateFrom == $dateTo || $dateFrom > $dateTo) {
 					$("#dateTo").addClass('btn-danger');
 					$("#dateFrom").addClass('btn-danger');
 					$check = false;
@@ -267,6 +268,14 @@ if($_SESSION['is_logged'] == FALSE){
 					$("#checkBtn").hide();
 				} else {
 
+				}
+			});
+
+			$("#showMoreInfo").click(function()){
+				if($("#moreInfo").style.display === none){
+					$("#moreInfo").fadeIn("slow"); 
+				}else{
+					$("#moreInfo").fadeOut("slow"); 
 				}
 			});
 
