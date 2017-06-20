@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2017 at 10:16 AM
+-- Generation Time: Jun 20, 2017 at 07:28 PM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -40,15 +40,22 @@ CREATE TABLE `airplane` (
 
 CREATE TABLE `flight` (
   `FL_ID` int(11) NOT NULL,
-  `FL_CLASS` int(11) NOT NULL,
-  `FL_DEPARTDATE` date NOT NULL,
-  `FL_RETURNDATE` date NOT NULL,
+  `FL_CLASS` varchar(11) NOT NULL,
+  `FL_DEPARTDATE` int(11) NOT NULL,
+  `FL_RETURNDATE` int(11) NOT NULL,
   `FL_TO` varchar(11) NOT NULL,
   `FL_FROM` varchar(11) NOT NULL,
-  `FL_TYPE` varchar(1000) NOT NULL,
   `FL_PASSQTY` int(11) NOT NULL,
-  `FL_FARE` double NOT NULL
+  `FL_FARE` double NOT NULL,
+  `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `flight`
+--
+
+INSERT INTO `flight` (`FL_ID`, `FL_CLASS`, `FL_DEPARTDATE`, `FL_RETURNDATE`, `FL_TO`, `FL_FROM`, `FL_PASSQTY`, `FL_FARE`, `user_id`) VALUES
+(15, 'BSNS', 1496246400, 1497456000, 'Calbayog', 'Basco (Bata', 2, 44000, 8);
 
 -- --------------------------------------------------------
 
@@ -75,6 +82,19 @@ CREATE TABLE `passenger` (
 INSERT INTO `passenger` (`PASS_ID`, `PASS_AGE`, `PASS_ADDRESS`, `PASS_GENDER`, `PASS_FIRSTNAME`, `PASS_MIDDLENAME`, `PASS_LASTNAME`, `PASS_EMAIL`, `PASS_PASSWORD`) VALUES
 (8, 18, '1020a, Metrica St., Sampaloc, Manila', 'MALE', 'Angelo', 'Ecura', 'Ganaden Jr', 'angelojrganaden@gmail.com', '12345678');
 
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `transaction`
+--
+
+CREATE TABLE `transaction` (
+  `transaction_id` int(11) NOT NULL,
+  `transaction_date` int(11) NOT NULL,
+  `transaction_type` varchar(255) NOT NULL,
+  `user_id` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
 --
 -- Indexes for dumped tables
 --
@@ -98,6 +118,12 @@ ALTER TABLE `passenger`
   ADD PRIMARY KEY (`PASS_ID`);
 
 --
+-- Indexes for table `transaction`
+--
+ALTER TABLE `transaction`
+  ADD PRIMARY KEY (`transaction_id`);
+
+--
 -- AUTO_INCREMENT for dumped tables
 --
 
@@ -110,12 +136,17 @@ ALTER TABLE `airplane`
 -- AUTO_INCREMENT for table `flight`
 --
 ALTER TABLE `flight`
-  MODIFY `FL_ID` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `FL_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 --
 -- AUTO_INCREMENT for table `passenger`
 --
 ALTER TABLE `passenger`
   MODIFY `PASS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+--
+-- AUTO_INCREMENT for table `transaction`
+--
+ALTER TABLE `transaction`
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
