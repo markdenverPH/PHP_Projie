@@ -143,7 +143,8 @@ if($_SESSION['is_logged'] == FALSE){
 		$(document).ready(function(){
 			$("#reset").click(function() {
 				$(this).closest('form').find("input[type=text], textarea").val("");
-				$(this).closest('form').find("input[type=number], textarea").val("");
+				$(this).closest('form').find("input[type=number], textarea").val(null);
+				$(this).closest('form').find("select, option").val(null);
 			});
 		});
 	</script>
