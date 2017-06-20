@@ -23,8 +23,20 @@
           }
      }
      if(isset($_POST['checkout_out2'])){
-          if(isset($_POST['orig1']) && isset($_POST['checkout_out2']) && $_POST['orig1']!="" && $_POST['orig2']!=12){
+          if(isset($_POST['orig1']) && isset($_POST['checkout_out2']) && $_POST['orig1']!="" && $_POST['orig1']!=12){
                $temp = $_POST['orig1'] - 12;
+               if($temp <0){
+                    $temp = $temp * -1;
+               }
+               $airfare = $temp * 2000;
+               $airfare = $airfare * $pass;
+          } else {
+               wrong();
+          }
+     }
+     if(isset($_POST['checkout_out3'])){
+          if(isset($_POST['orig1']) && isset($_POST['checkout_out3']) && $_POST['orig1']!="" && $_POST['orig1']!=24){
+               $temp = $_POST['orig1'] - 24;
                if($temp <0){
                     $temp = $temp * -1;
                }
@@ -79,13 +91,15 @@
                <p><b>Airfare:</b> <?php echo number_format($airfare - ($airfare*0.12), 2); ?></p>
                <p><b>Tax:</b> <?php echo number_format(($price*0.12) + ($airfare*0.12), 2); ?></p>
                <p><b>Total:</b> <?php echo number_format($airfare + $price,2); ?></p>
-               <div class="form-group ">
-                    <label>Payment:</label>
-                    <input type="text" class="form-control" placeholder="PAYMENT" required>
-               </div>
-               <div class="form-group" align="right">
-                    <input type="submit" name="checkout_confirm" class="btn btn-primary" data-dismiss="modal" value="Checkout"></input>
-               </div>
+               <form method="post" action="BookPackage_exec.php">
+                    <div class="form-group ">
+                         <label>Payment:</label>
+                         <input type="text" class="form-control" placeholder="PAYMENT" required>
+                    </div>
+                    <div class="form-group" align="right">
+                         <input type="submit" name="checkout_confirm" class="btn btn-primary" data-dismiss="modal" value="Checkout"></input>
+                    </div>
+               </form>
           </div>
           <div class="col-md-3"></div>
      </div>
