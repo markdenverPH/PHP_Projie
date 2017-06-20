@@ -134,8 +134,8 @@ if($_SESSION['is_logged'] == FALSE){
 	<script src="../js/jquery.menu-aim.js"></script>
 	<script src="../js/Landingmain.js"></script> 
 	<script src="../js/WebScript.js"></script> 
-	<script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
-	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 	<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 
@@ -271,13 +271,6 @@ if($_SESSION['is_logged'] == FALSE){
 				}
 			});
 
-			$("#showMoreInfo").click(function()){
-				if($("#moreInfo").style.display === none){
-					$("#moreInfo").fadeIn("slow"); 
-				}else{
-					$("#moreInfo").fadeOut("slow"); 
-				}
-			});
 
 			//Main nav onclick
 			$("#mainpagee").click(function(){
