@@ -14,6 +14,13 @@
                $query = "INSERT into transaction(transaction_date, transaction_type, user_id)
                               VALUES('".$_POST['transac_date']."', 'package','".$_SESSION['id']."')";
                mysqli_query($con, $query) or die("ERROR INSERTING VALUES");
+               header("location: ../Landing.php");
+               echo'
+                    <script>
+                         alert("Successful Reservation");
+                    </script>
+               ';
+               exit();
           } else {
                echo'
                     <script>
