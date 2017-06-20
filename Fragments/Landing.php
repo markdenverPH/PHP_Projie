@@ -138,6 +138,18 @@ if($_SESSION['is_logged'] == FALSE){
 	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 	<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+	<script type="text/javascript">
+		$(document).ready(function(){
+			$("#reset").click(function() {
+				$(this).closest('form').find("input[type=text], textarea").val("");
+				$(this).closest('form').find("input[type=number], textarea").val(null);
+				$(this).closest('form').find("select, option").val(null);
+			});
+		});
+	</script>
+
+
 	<script type="text/javascript">
 		$('.form_datetime').datetimepicker({
         //language:  'fr',
@@ -176,6 +188,7 @@ if($_SESSION['is_logged'] == FALSE){
 	<!-- Script for slideshow -->
 	<script type="text/javascript">
 		$(document).ready(function(){
+
 			$("#slideshow > div:gt(0)").hide();
 
 			setInterval(function() { 
