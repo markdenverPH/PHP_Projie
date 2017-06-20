@@ -1,3 +1,12 @@
+<?php
+
+
+if($_SESSION['is_logged'] == FALSE){
+	header("Location: login.php");
+}
+
+?>
+
 <h1 class="pull-left BannMsg">Welcome to Pakito Airlines.</h1>
 <br><br>
 

@@ -1,5 +1,17 @@
+<<<<<<< HEAD
 <h1 class="pull-left BannMsg">Book a Flight</h1>
 <br><br><br><br>
+=======
+<?php
+
+
+if($_SESSION['is_logged'] == FALSE){
+	header("Location: login.php");
+}
+
+?>
+<h1 class="pull-left BannMsg">Book a Flight</h1><br><br><br><br>
+>>>>>>> 8deb772500c24c2908c3669fae15d65a5724591a
 <form action="MainDiv/BookFlight-Exec.php" method="post">
 	<div class="row">
 
@@ -66,6 +78,22 @@
 				</div>
 			</div>
 		</div>
+<<<<<<< HEAD
+=======
+	</div>
+
+	<div class="form-group" >
+
+		<label for="dtp_input2" class=" control-label">Roundtrip</label>
+		<label class="radio-inline">
+			<input type="radio" value="Yes" name="isRoundtrip" checked >Yes
+		</label>
+		<label class="radio-inline">
+			<input type="radio" value="No" name="isRoundtrip">No
+		</label>
+	</div>
+
+>>>>>>> 8deb772500c24c2908c3669fae15d65a5724591a
 
 		<div class="col-md-4">
 			<center>
