@@ -251,12 +251,16 @@ if($_SESSION['is_logged'] == FALSE){
 				}else{
 					$("#dateTo").removeClass('btn-danger');
 				}
-
-
-
+				if ($dateFrom == $dateTo) {
+					$("#dateTo").addClass('btn-danger');
+					$("#dateFrom").addClass('btn-danger');
+					$check = false;
+				}else{
+					$("#dateTo").removeClass('btn-danger');
+					$("#dateFrom").removeClass('btn-danger');
+				}
 
 				if ($check == true) {
-
 					$("#divFrom").removeClass('btn-danger');
 					$("#divTo").removeClass('btn-danger');
 					$("#submitBtn").fadeIn("slow"); 

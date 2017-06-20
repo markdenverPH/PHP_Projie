@@ -8,7 +8,7 @@
 			<!--Origin Place -->
 			<div id="divFrom" class="form-group select-style ">
 				<label> Origin</label>
-				<select style="width: 100%;" id="descFrom" name="descFrom" >											<!-- name="descFrom"  -->
+				<select style="width: 100%;" id="descFrom" name="descFromS" >											<!-- name="descFromS"  -->
 					<?php include'BookFlight-Destinations.php'; ?>
 				</select>
 			</div>
@@ -49,7 +49,7 @@
 		<!-- Destination To -->
 		<div  id="divTo" class="form-group select-style">
 			<label> Destinaton</label>
-			<select style="width: 100%;" id="descTo" name="descTo">                          							 <!--name="descTo"  -->
+			<select style="width: 100%;" id="descTo" name="descToS">                          							 <!--name="descToS"  -->
 				<?php include'BookFlight-Destinations.php'; ?>
 			</select>
 		</div>
@@ -82,12 +82,6 @@
 </div>
 </form>
 
-
-
-
-
-
-?>
 
 
 
