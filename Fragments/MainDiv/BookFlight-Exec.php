@@ -1,4 +1,13 @@
+<?php
 
+session_start();
+
+
+if($_SESSION['is_logged'] == FALSE){
+	header("Location: login.php");
+}
+
+?>
 <?php 
 include '../MainLinks.html';
 if (isset($_POST['checkFlight'])) {
@@ -20,6 +29,7 @@ if (isset($_POST['checkFlight'])) {
 	$var_descFromWords;
 	$var_descToWords;
 	$var_AirFare = 2000;
+	$var_isRoundtrip = $_POST["isRoundtrip"];
 	$var_diffDest = $var_descTo - $var_descFrom;
 	if ($var_diffDest<0) {
 		$var_diffDest=$var_diffDest*-1;
@@ -78,9 +88,14 @@ if (isset($_POST['checkFlight'])) {
 
 	<?php 
 	$shit = rand($var_dateFromUnix, $var_dateToUnix); 
+	$var_valueRound = 1;
 	$var_AirFareComp = $var_diffDest * $var_AirFare; 
-
-	$var_Total = ($var_AirFareComp+ $var_cabinClassTotal) *  $var_noPass;
+	if ($var_isRoundtrip=="Yes") {
+		$var_valueRound = 2;
+	}else{
+		$var_dateToUnix = 0;
+	}
+	$var_Total = ($var_AirFareComp+ $var_cabinClassTotal) *  $var_noPass *$var_valueRound;
 
 	?>
 	<div class="container-fluid">
@@ -94,6 +109,7 @@ if (isset($_POST['checkFlight'])) {
 						<th>Destination</th>
 						<th>Class</th>
 						<th>Flight Date</th>
+						<th>Roundtrip</th>
 						<th>Total</th>
 						<th>Break down</th>
 						<th>Reserve</th>
@@ -103,84 +119,105 @@ if (isset($_POST['checkFlight'])) {
 					<tr class="success">
 						<td><?php echo "$var_descFromWords - $var_descToWords"; ?></td>
 						<td><?php echo "$var_cabinClass - $var_noPass person/s"; ?></td>
-						<td><?php echo date("F j, Y ",$shit); ?></td>
-						<td><?php echo "P	$var_Total" ?></td>
-						<td><button id="showMoreInfo" type="button" class="btn btn-info" style="width: 100%;">Show</button></td>
-						<td><button type="button" class="btn btn-success" style="width: 100%;">Reserve</button></td>
-					</tr>
-				</tbody>
-			</table>
-			<center>
-				<div class="row" id="moreInfo" style="display: none;">
-					
+						<td><?php echo date("F j, Y ",$shit); 
+							if ($var_isRoundtrip=="Yes") {
+								echo "-".date("F j, Y ",$var_dateToUnix); 
+							}
+							?></td>
+							<td><?php echo $var_isRoundtrip ?></td>
+							<td><?php echo "P	$var_Total" ?></td>
+							<td><button id="showMoreInfo" type="button" class="btn btn-info" style="width: 100%;">Show</button></td>
+							<form action="" method="post">	
+								<td><button type="submit" class="btn btn-success" style="width: 100%;">Reserve</button></td>
+							</form>
+						</tr>
+					</tbody>
+				</table>
+				<center>
+					<div class="row" id="moreInfo" style="display: none;">
 
-					<table class="table">
-						<thead>
-							<tr class="active">
-								<th>Label</th>
-								<th>Description</th>
-								<th>Price</th>
-							</tr>
-						</thead>
-						<tbody>
-							<tr>
-								<td>Destination</td>
-								<td><?php echo "$var_descFromWords - $var_descToWords"; ?></td>
-								<td><?php echo "P $var_AirFareComp"; ?></td>
-							</tr>   
-							<tr>
-								<td>Class</td>
-								<td><?php echo "$var_cabinClass"; ?></td>
-								<td><?php echo "P $var_cabinClassTotal"; ?></td>
-							</tr>     
-							<tr>
-								<td>No of Person</td>
-								<td><?php echo "$var_noPass"; ?></td>
-								<td><?php echo "- "; ?></td>
-							</tr> 
-							<tr>
-								<td> </td>
-								<td><b> Total </b></td>
-								<td><?php echo "P $var_Total "; ?></td>
-							</tr> 
-							<tr>
-								<td> </td>
-								<td><b> Per person </b></td>
-								<td><?php 
-									$var_Total_div =  $var_Total/$var_noPass;
-									echo "P $var_Total_div ";
-									?></td>
+
+						<table class="table">
+							<thead>
+								<tr class="active">
+									<th>Label</th>
+									<th>Description</th>
+									<th>Price</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td>Destination</td>
+									<td><?php echo "$var_descFromWords - $var_descToWords"; ?></td>
+									<td><?php echo "P $var_AirFareComp"; ?></td>
+								</tr>   
+								<tr>
+									<td>Class</td>
+									<td><?php echo "$var_cabinClass"; ?></td>
+									<td><?php echo "P $var_cabinClassTotal"; ?></td>
+								</tr>     
+								<tr>
+									<td>No of Person</td>
+									<td><?php echo "$var_noPass"; ?></td>
+									<td><?php echo "- "; ?></td>
 								</tr> 
-							</tbody>
-						</table>
-					</div>
+								<tr>
+									<td>Roundtrip</td>
+									<td><?php echo "$var_isRoundtrip"; ?></td>
+									<td><?php echo "- "; ?></td>
+								</tr> 
+								<tr>
+									<td> </td>
+									<td><b> Total </b></td>
+									<td><?php echo "P $var_Total "; ?></td>
+								</tr> 
+								<tr>
+									<td> </td>
+									<td><b> Per person </b></td>
+									<td><?php 
+										$var_Total_div =  $var_Total/$var_noPass;
+										echo "P $var_Total_div ";
+										?></td>
+									</tr> 
+								</tbody>
+							</table>
+						</div>
 
-					<td><button type="button" class="btn btn-danger">
-						<a href="../Landing.php" style="text-decoration: none; color: white;">Cancel</a>
-					</button></td>
-				</center>
+						<td><button type="button" class="btn btn-danger">
+							<a href="../Landing.php" style="text-decoration: none; color: white;">Cancel</a>
+						</button></td>
+					</center>
 
+				</div>
+				<div class="col-md-2"></div>
 			</div>
-			<div class="col-md-2"></div>
-		</div>
 
-		<script type="text/javascript">
+			<script type="text/javascript">
 
-			var varPakitoMiles = document.getElementById('moreInfo');
-			$(document).ready(function(){
-				$("#showMoreInfo").click(function(){
-					if(varPakitoMiles.style.display === 'none'){
-						$(varPakitoMiles).fadeIn("slow"); 
-						$("#showMoreInfo").html('Hide');
-					}else{
-						$(varPakitoMiles).fadeOut("slow");  
-						$("#showMoreInfo").html('Show');
-					}
+				var varPakitoMiles = document.getElementById('moreInfo');
+				$(document).ready(function(){
+					$("#showMoreInfo").click(function(){
+						if(varPakitoMiles.style.display === 'none'){
+							$(varPakitoMiles).fadeIn("slow"); 
+							$("#showMoreInfo").html('Hide');
+						}else{
+							$(varPakitoMiles).fadeOut("slow");  
+							$("#showMoreInfo").html('Show');
+						}
+					});
 				});
-			});
 
 
-		</script>
+			</script>
 
-	</body>
-	</html>
+		</body>
+		</html>
+
+
+		<?php 
+		include '../conn.php';
+		$sql = "INSERT into flight 
+		(FL_CLASS,FL_DEPARTDATE,FL_RETURNDATE,FL_TO,FL_FROM,FL_TYPE,FL_PASSQTY,FL_FARE,user_id) VALUES 
+		('$var_cabinClass',$var_dateFromUnix,$)
+		"
+		?>

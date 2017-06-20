@@ -1,4 +1,11 @@
+<?php
 
+
+if($_SESSION['is_logged'] == FALSE){
+	header("Location: login.php");
+}
+
+?>
 <h1 class="pull-left BannMsg">Book a Flight</h1><br><br><br><br>
 <form action="MainDiv/BookFlight-Exec.php" method="post">
 	<div class="row">
@@ -67,6 +74,17 @@
 			<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 			<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 		</div>
+	</div>
+
+	<div class="form-group" >
+
+		<label for="dtp_input2" class=" control-label">Roundtrip</label>
+		<label class="radio-inline">
+			<input type="radio" value="Yes" name="isRoundtrip" checked >Yes
+		</label>
+		<label class="radio-inline">
+			<input type="radio" value="No" name="isRoundtrip">No
+		</label>
 	</div>
 
 
