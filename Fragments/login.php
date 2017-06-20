@@ -4,7 +4,7 @@ session_start();
 
 
 if($_SESSION['is_logged'] == TRUE){
-    header("Location: landing.php");
+    header("Location: Landing.php");
 }
 
  ?>
@@ -38,7 +38,7 @@ if($_SESSION['is_logged'] == TRUE){
         $("#login-form").fadeOut(100);
         $('#login-form-link').removeClass('active');
         $(this).addClass('active');
-        e.preventDefault(); 
+        e.preventDefault();
       });
 
     });
@@ -133,7 +133,7 @@ if($_SESSION['is_logged'] == TRUE){
                   $_SESSION['is_logged'] = true;
 
                   echo '<script type="text/javascript">
-                  window.location.href = "http://localhost/php_projie/fragments/landing.php"
+                  window.location.href = "http://localhost/PHP_Projie/fragments/Landing.php"
                 </script>';
               }else{
                 echo "<script> alert('failed') </script>";
@@ -197,7 +197,7 @@ if($_SESSION['is_logged'] == TRUE){
                   <label for="">EMAIL</label>
                   <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" required>
                 </div>
-              </div>  
+              </div>
               <div class="form-group container-fluid">
                 <div class="col-sm-12">
 
@@ -209,7 +209,7 @@ if($_SESSION['is_logged'] == TRUE){
                 <div class="col-sm-10">
 
                   <label for="">PASSWORD</label> <label id="message"></label>
-                  <input type="password" name="password_input" id="password_input" tabindex="2" class="form-control" placeholder="Password" required 
+                  <input type="password" name="password_input" id="password_input" tabindex="2" class="form-control" placeholder="Password" required
                   pattern=".{8,}" title="8 characters minimum" onkeyup='check_pass()'>
                 </div>
                 <div class="col-sm-2">
@@ -260,7 +260,7 @@ $('#password_input, #confirm-password').on('keyup', function () {
   if ($('#password_input').val() == $('#confirm-password').val()) {
 
     $('#message').html('Matching').css('color', 'green');
-  } else 
+  } else
   $('#message').html('Not Matching').css('color', 'red');
 });
 document.getElementById("showPass").addEventListener("click", function(){
@@ -271,7 +271,7 @@ document.getElementById("showPass").addEventListener("click", function(){
   }else{
     document.getElementById("txtShow").innerHTML = "Show";
     input.type = "password";
-  } 
+  }
 
 });
 document.getElementById("showPass_2").addEventListener("click", function(){
@@ -282,7 +282,7 @@ document.getElementById("showPass_2").addEventListener("click", function(){
   }else{
     document.getElementById("txtShow_2").innerHTML = "Show";
     input.type = "password";
-  } 
+  }
 
 });
 </script>
