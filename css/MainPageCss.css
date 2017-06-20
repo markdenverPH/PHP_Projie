@@ -47,7 +47,7 @@
 }
 .listClassHead{
 	text-align: center;
-	background-color: #fdb818;
+	background-color: #fdb818 !important;
 }
 .HeadGlyph{
 	margin-right: 10px;
@@ -84,7 +84,6 @@
 .select-style select:focus {
 	outline: none;
 }
-.col-centered{
-    float: none;
-    margin: 0 auto;
+.btn-danger{
+  color: black !important;
 }
