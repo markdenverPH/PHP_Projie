@@ -6,7 +6,7 @@ session_start();
 if($_SESSION['is_logged'] == FALSE){
 	header("Location: login.php");
 }
-
+$user_id= $_SESSION['id'];
 ?>
 
 <!doctype html>

@@ -2,6 +2,7 @@
 
 session_start();
 
+$user_id= $_SESSION['id'];
 
 if($_SESSION['is_logged'] == FALSE){
 	header("Location: login.php");
@@ -112,7 +113,6 @@ if (isset($_POST['checkFlight'])) {
 						<th>Roundtrip</th>
 						<th>Total</th>
 						<th>Break down</th>
-						<th>Reserve</th>
 					</tr>
 				</thead>
 				<tbody>
@@ -127,9 +127,8 @@ if (isset($_POST['checkFlight'])) {
 							<td><?php echo $var_isRoundtrip ?></td>
 							<td><?php echo "P	$var_Total" ?></td>
 							<td><button id="showMoreInfo" type="button" class="btn btn-info" style="width: 100%;">Show</button></td>
-							<form action="" method="post">	
-								<td><button type="submit" class="btn btn-success" style="width: 100%;">Reserve</button></td>
-							</form>
+	
+							
 						</tr>
 					</tbody>
 				</table>
@@ -183,8 +182,8 @@ if (isset($_POST['checkFlight'])) {
 							</table>
 						</div>
 
-						<td><button type="button" class="btn btn-danger">
-							<a href="../Landing.php" style="text-decoration: none; color: white;">Cancel</a>
+						<td><button type="button" class="btn btn-success">
+							<a href="../Landing.php" style="text-decoration: none; color: white;">Proceed</a>
 						</button></td>
 					</center>
 
@@ -215,9 +214,28 @@ if (isset($_POST['checkFlight'])) {
 
 
 		<?php 
-		include '../conn.php';
-		$sql = "INSERT into flight 
-		(FL_CLASS,FL_DEPARTDATE,FL_RETURNDATE,FL_TO,FL_FROM,FL_TYPE,FL_PASSQTY,FL_FARE,user_id) VALUES 
-		('$var_cabinClass',$var_dateFromUnix,$)
-		"
+			include '../conn.php';
+			$sql = "INSERT into flight 
+			(FL_CLASS,
+			FL_DEPARTDATE,
+			FL_RETURNDATE,
+			FL_TO,
+			FL_FROM,
+			FL_PASSQTY,
+			FL_FARE,
+			user_id) VALUES 
+			(
+			'$var_cabinClass',
+			'$var_dateFromUnix',
+			'$var_dateToUnix',
+			'$var_descToWords',
+			'$var_descFromWords',
+			'$var_noPass', 
+			'$var_Total',
+			'$user_id')";
+			if (!mysqli_query($con, $sql)) {
+				die('Errors: '.mysqli_error($con));
+			}else{
+			}
+		
 		?>
