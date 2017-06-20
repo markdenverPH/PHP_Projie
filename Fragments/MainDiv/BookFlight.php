@@ -23,7 +23,7 @@
 				data-link-format="yyyy-mm-dd">
 
 				<input class="form-control" size="16" type="text" value="" name="dateFrom" readonly>        <!-- name="dateFrom"  -->
-				<span class="input-group-addon"><span cl	 ass="glyphicon glyphicon-remove"></span></span>
+				<span class="input-group-addon"><span class="glyphicon glyphicon-remove"></span></span>
 				<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 			</div>
 		</div>
