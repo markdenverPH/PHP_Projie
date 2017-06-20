@@ -1,4 +1,4 @@
-         
+ <option value="">-- Select One --</option>
 <option value="BCD">Bacolod  (BCD)</option>                             
 <option value="BSO">Basco (Batanes) (BSO)</option>            
 <option value="USU">Busuanga (Coron) (USU)</option>
@@ -18,7 +18,7 @@
 <option value="KLO">Kalibo  (KLO)</option>        
 <option value="LAO">Laoag  (LAO)</option>         
 <option value="LGP" >Legazpi  (LGP)</option>        
-<option value="MNL" selected="">Manila  (MNL)</option>   
+<option value="MNL" >Manila  (MNL)</option>   
 <option value="MBT">Masbate  (MBT)</option>        
 <option value="WNP">Naga  (WNP)</option>          
 <option value="OZC">Ozamiz  (OZC)</option>     
