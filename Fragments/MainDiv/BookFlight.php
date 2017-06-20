@@ -1,7 +1,4 @@
-<<<<<<< HEAD
-<h1 class="pull-left BannMsg">Book a Flight</h1>
-<br><br><br><br>
-=======
+
 <?php
 
 
@@ -11,7 +8,6 @@ if($_SESSION['is_logged'] == FALSE){
 
 ?>
 <h1 class="pull-left BannMsg">Book a Flight</h1><br><br><br><br>
->>>>>>> 8deb772500c24c2908c3669fae15d65a5724591a
 <form action="MainDiv/BookFlight-Exec.php" method="post">
 	<div class="row">
 
@@ -47,10 +43,10 @@ if($_SESSION['is_logged'] == FALSE){
 			<div class="form-group select-style">
 				<label> Cabin Class</label>
 				<select name="cabinClass" required="">
-				<option value="null">-- Select One --</option>												<!--name="cabinClass"  -->
-				<option value="ECNMY">Economy Class</option>
-				<option value="BSNS">Bussiness Class</option>
-			</select>
+					<option value="null">-- Select One --</option>												<!--name="cabinClass"  -->
+					<option value="ECNMY">Economy Class</option>
+					<option value="BSNS">Bussiness Class</option>
+				</select>
 
 			</div>
 
@@ -61,8 +57,8 @@ if($_SESSION['is_logged'] == FALSE){
 			<div id="divTo" class="form-group select-style">
 				<label> Destinaton</label>
 				<select style="width: 100%;" id="descTo" name="descToS">                          							 <!--name="descToS"  -->
-				<?php include'BookFlight-Destinations.php'; ?>
-			</select>
+					<?php include'BookFlight-Destinations.php'; ?>
+				</select>
 			</div>
 			<br><br>
 			<!-- Date To -->
@@ -77,31 +73,28 @@ if($_SESSION['is_logged'] == FALSE){
 					<span class="input-group-addon"><span class="glyphicon glyphicon-calendar"></span></span>
 				</div>
 			</div>
+
+			<div class="form-group" >
+
+				<label for="dtp_input2" class=" control-label">Roundtrip</label>
+				<label class="radio-inline">
+					<input type="radio" value="Yes" name="isRoundtrip" checked >Yes
+				</label>
+				<label class="radio-inline">
+					<input type="radio" value="No" name="isRoundtrip">No
+				</label>
+			</div>
 		</div>
-<<<<<<< HEAD
-=======
+	
+
+
+	<div class="col-md-4">
+		<center>
+			<button type="button" name="checkFlight" id="checkBtn" style="width: 60%;  color: white" class="btn btn-info">Check Flight</button>
+			<button type="submit" id="submitBtn" name="checkFlight" style="width: 60%;  color: white !important; display: none;" class="btn btn-success ">Checkout</button>
+			<br><br>
+			<button type="button" id="reset" style="width: 60%; color: white" class="btn btn-danger ">Clear</button>
+		</center>
 	</div>
-
-	<div class="form-group" >
-
-		<label for="dtp_input2" class=" control-label">Roundtrip</label>
-		<label class="radio-inline">
-			<input type="radio" value="Yes" name="isRoundtrip" checked >Yes
-		</label>
-		<label class="radio-inline">
-			<input type="radio" value="No" name="isRoundtrip">No
-		</label>
-	</div>
-
->>>>>>> 8deb772500c24c2908c3669fae15d65a5724591a
-
-		<div class="col-md-4">
-			<center>
-				<button type="button" name="checkFlight" id="checkBtn" style="width: 60%;  color: white" class="btn btn-info">Check Flight</button>
-				<button type="submit" id="submitBtn" name="checkFlight" style="width: 60%;  color: white !important; display: none;" class="btn btn-success ">Checkout</button>
-				<br><br>
-				<button type="button" id="reset" style="width: 60%; color: white" class="btn btn-danger ">Clear</button>
-			</center>
-		</div>
-	</div>
+</div>
 </form>
