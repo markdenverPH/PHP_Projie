@@ -134,8 +134,8 @@ if($_SESSION['is_logged'] == FALSE){
 	<script src="../js/jquery.menu-aim.js"></script>
 	<script src="../js/Landingmain.js"></script> 
 	<script src="../js/WebScript.js"></script> 
-	<script type="text/javascript" src="./jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
-	<script type="text/javascript" src="./bootstrap/js/bootstrap.min.js"></script>
+	<script type="text/javascript" src="../jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 	<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 
@@ -219,6 +219,58 @@ if($_SESSION['is_logged'] == FALSE){
 		var varCustomerService = document.getElementById('CustomerService');
 
 		$(document).ready(function(){
+			var $check = false;
+			var $descFrom;
+			var $descTo;
+			$('#descFrom').on('change', function() {
+				$descFrom = this.value;
+			})
+			$('#descTo').on('change', function() {
+				$descTo = this.value;
+			})
+			$("#checkBtn").click(function(){
+				var $dateFrom = $('#dateFrom').val();
+				var $dateTo = $('#dateTo').val();
+
+				if($descTo == $descFrom ||  $descTo == null || $descFrom == null){
+					$("#divFrom").addClass('btn-danger');
+					$("#divTo").addClass('btn-danger');
+					$check = false;
+				}else{
+					$check = true;
+				}
+
+				if ($dateFrom == "") {
+					$("#dateFrom").addClass('btn-danger');
+					$check = false;
+				}else{
+					$("#dateFrom").removeClass('btn-danger');
+				}
+				if ($dateTo == "") {
+					$("#dateTo").addClass('btn-danger');
+					$check = false;
+				}else{
+					$("#dateTo").removeClass('btn-danger');
+				}
+				if ($dateFrom == $dateTo || $dateFrom > $dateTo) {
+					$("#dateTo").addClass('btn-danger');
+					$("#dateFrom").addClass('btn-danger');
+					$check = false;
+				}else{
+					$("#dateTo").removeClass('btn-danger');
+					$("#dateFrom").removeClass('btn-danger');
+				}
+
+				if ($check == true) {
+					$("#divFrom").removeClass('btn-danger');
+					$("#divTo").removeClass('btn-danger');
+					$("#submitBtn").fadeIn("slow"); 
+					$("#checkBtn").hide();
+				} else {
+
+				}
+			});
+
 
 			//Main nav onclick
 			$("#mainpagee").click(function(){
