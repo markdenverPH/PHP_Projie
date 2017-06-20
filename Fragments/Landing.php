@@ -5,8 +5,7 @@ session_start();
 
 if($_SESSION['is_logged'] == FALSE){
 	header("Location: login.php");
-}
-$user_id= $_SESSION['id'];
+}	
 ?>
 
 <!doctype html>
@@ -91,15 +90,11 @@ $user_id= $_SESSION['id'];
 			</div>
 			
 			<div class="container-fluid divMain" id="ManageBooking" style="height: 100%; display:  none;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial 3</h1></div>
-				<div class="col-md-4"></div>
+				<?php include 'MainDiv/ManageBooking.php'; ?>
 			</div>
 
 			<div class="container-fluid divMain" id="PakitoMiles" style="height: 100%; display:  none;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial 4</h1></div>
-				<div class="col-md-4"></div>
+					<?php include 'MainDiv/PakitoMiles.php'; ?>
 			</div>
 
 			<div class="container-fluid divMain" id="FlighStatus" style="height: 100%; display:  none;">
