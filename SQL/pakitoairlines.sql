@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 21, 2017 at 08:47 AM
+-- Generation Time: Jun 21, 2017 at 09:50 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -78,7 +78,7 @@ CREATE TABLE `passenger` (
   `PASS_LASTNAME` varchar(100) NOT NULL,
   `PASS_EMAIL` varchar(100) NOT NULL,
   `PASS_PASSWORD` varchar(100) NOT NULL,
-  `images_path` varchar(225) NOT NULL
+  `images_path` varchar(225) NOT NULL DEFAULT 'assets/img/21-06-2017-boss.png'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -86,7 +86,8 @@ CREATE TABLE `passenger` (
 --
 
 INSERT INTO `passenger` (`PASS_ID`, `PASS_AGE`, `PASS_ADDRESS`, `PASS_GENDER`, `PASS_FIRSTNAME`, `PASS_MIDDLENAME`, `PASS_LASTNAME`, `PASS_EMAIL`, `PASS_PASSWORD`, `images_path`) VALUES
-(8, 18, '1020a, Metrica St., Sampaloc, Manila', 'MALE', 'Angelo', 'Ecura', 'Ganaden Jr', 'angelojrganaden@gmail.com', '12345678', 'assets/img/21-06-2017-1498002899.jpg');
+(8, 18, '1020a, Metrica St., Sampaloc, Manila', 'MALE', 'Angelo', 'Ecura', 'Ganaden Jr', 'angelojrganaden@gmail.com', '12345678', 'assets/img/21-06-2017-1498031060.jpg'),
+(12, 0, '', '', '', '', '', 'admin', 'admin', '');
 
 -- --------------------------------------------------------
 
@@ -155,7 +156,7 @@ ALTER TABLE `flight`
 -- AUTO_INCREMENT for table `passenger`
 --
 ALTER TABLE `passenger`
-  MODIFY `PASS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `PASS_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 --
 -- AUTO_INCREMENT for table `transaction`
 --
