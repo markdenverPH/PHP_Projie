@@ -6,21 +6,27 @@ if($_SESSION['is_logged'] == FALSE){
 }
 
 ?>
-
-<h1 class="pull-left BannMsg">Welcome to Pakito Airlines.</h1>
 <br><br>
+<h1 class="pull-left BannMsg">Welcome to Pakito Airlines.</h1>
+<br><br><br><br><br><br>
 
 
 <div id="slideshow" class="row">
 	<div>
-		<img src="../img/banner.jpg" style="height: 100%; width: 100%;">
+		<img src="../img/banner.png" style="height: 100%; width: 100%;">
 	</div>
 	<div>
-		<img src="../img/banner2.jpg" style="height: 100%; width: 100%;">
+		<img src="../img/banner1.png" style="height: 100%; width: 100%;">
 	</div>
 	<div>
-		<img src="../img/banner3.jpg" style="height: 100%; width: 100%;">
+		<img src="../img/banner2.png" style="height: 100%; width: 100%;">
+	</div>	
+	<div>
+		<img src="../img/banner3.png" style="height: 100%; width: 100%;">
 	</div>			
+	<div>
+		<img src="../img/banner4.png" style="height: 100%; width: 100%;">
+	</div>					
 </div>		
 
 <!-- Card numero uno, ilagay dito ang mga putapeteng other links -->

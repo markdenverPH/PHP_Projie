@@ -24,127 +24,144 @@ if($_SESSION['is_logged'] == FALSE){
 </head>
 <body>
 	<header class="cd-main-header">
-		<a href="#0" class="cd-logo"><img src="../img/cd-logo.svg" alt="Logo"></a>
-		
+		<a href="Landing.php" class="cd-logo"><p>PAKITO</p></a>
+
+		<?php 
+// para sa user lang to, di pa tapos tangina
+
+		include('conn.php');
+		$user_id = $_SESSION['id'];
+		$result3 = mysqli_query($con,"SELECT * FROM passenger WHERE PASS_ID='$user_id'");
+if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
+{
+
+	?>
 
 
-		<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
 
-		<nav class="cd-nav">
-			<ul class="cd-top-nav">
-				<li><a href="#0">Pakito Store</a></li>
-				<li><a href="#0">Support</a></li>
+	<a href="#0" class="cd-nav-trigger">Menu<span></span></a>
+
+	<nav class="cd-nav">
+		<ul class="cd-top-nav">
+			<li><a href="#0">Pakito Store</a></li>
+			<li><a href="#0">Support</a></li>
+
+			<?php 
+			While($row3 = mysqli_fetch_array($result3)){
+				?>
 				<li class="has-children account">
 					<a href="#0">
-						<img src="../img/cd-avatar.png" alt="avatar">
+						<img src="<?php echo $row3['images_path']; ?>">
 						Account
 					</a>
+					<?php }
+				} ?>
+				<ul>
 
-					<ul>
+					<li id="limyAccount"><a href="#0" id="myAccount">My Account</a></li>
+					<li><a href="logout.php">Logout</a></li>						
+				</ul>
+			</li>
+		</ul>
+	</nav>
+</header> <!-- .cd-main-header -->
 
-						<li><a href="#0">My Account</a></li>
-						<li><a href="#0">Edit Account</a></li>
+<main class="cd-main-content">
+	<nav class="cd-side-nav">
+		<ul>
+			<li class="cd-label">User Navigations</li>
+			<li class="active" id="limainpagee"><a href="#0" id="mainpagee">Main Page</a></li>
+			<li class="" id="libookflight"><a href="#0" id="bookfligt">Book a Flight</a></li>
+			<li class="" id="libookpackage"><a href="#0" id="bookpackage">Book a Package</a></li>
+			<li class="" id="limanagebooking"><a href="#0" id="managebooking">Manage Booking</a></li>
+			<li class="" id="lipakitomiles"><a href="#0" id="pakitomiles">Pakito Miles</a></li>
+			<li class="" id="liflightstatus"><a href="#0" id="flightstatus">Flight Status</a></li>
+		</ul>
 
-						<li><a href="logout.php">Logout</a></li>						
-					</ul>
-				</li>
-			</ul>
-		</nav>
-	</header> <!-- .cd-main-header -->
-
-	<main class="cd-main-content">
-		<nav class="cd-side-nav">
-			<ul>
-				<li class="cd-label">User Navigations</li>
-				<li class="active" id="limainpagee"><a href="#0" id="mainpagee">Main Page</a></li>
-				<li class="" id="libookflight"><a href="#0" id="bookfligt">Book a Flight</a></li>
-				<li class="" id="libookpackage"><a href="#0" id="bookpackage">Book a Package</a></li>
-				<li class="" id="limanagebooking"><a href="#0" id="managebooking">Manage Booking</a></li>
-				<li class="" id="lipakitomiles"><a href="#0" id="pakitomiles">Pakito Miles</a></li>
-				<li class="" id="liflightstatus"><a href="#0" id="flightstatus">Flight Status</a></li>
-			</ul>
-
-			<ul>
-				<li class="cd-label">Quick Links</li>
-				<li class="" id="liannouncements"><a href="#0" id="announcements">Announcements</a></li>
-				<li class="" id="lifaqs"><a href="#0" id="faqs">FAQs</a></li>
-				<li class="" id="licustomerservice"><a href="#0" id="customerservice">Customer Service</a></li>
-			</ul>
-
-			
-		</nav>
-		<!--Main Page-->
-
-		<div class="content-wrapper">
-			<?php include('MainLinks.html'); ?> 
-			<div class="container-fluid divMain" id="MainPage" style="height: 100%;">
-				<?php include 'MainDiv/Main.php'; ?>
-			</div>
-
-			<div class="container-fluid divMain" id="BookFlight" style="height: 100%; display:  none;">
-				<?php include 'MainDiv/BookFlight.php'; ?>
-			</div>
-
-			<div class="container-fluid divMain" id="BookPackage" style="height: 100%; display:  none;">
-				<?php include 'MainDiv/BookPackage.php'; ?>
-			</div>
-			
-			<div class="container-fluid divMain" id="ManageBooking" style="height: 100%; display:  none;">
-				<?php include 'MainDiv/ManageBooking.php'; ?>
-			</div>
-
-			<div class="container-fluid divMain" id="PakitoMiles" style="height: 100%; display:  none;">
-				<?php include 'MainDiv/PakitoMiles.php'; ?>
-			</div>
-
-			<div class="container-fluid divMain" id="FlighStatus" style="height: 100%; display:  none;">
-				<?php include 'MainDiv/CheckFlight.php'; ?>
-			</div>
-
-			<div class="container-fluid divMain" id="Announcement" style="height: 100%; display:  none;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial 6</h1></div>
-				<div class="col-md-4"></div>
-			</div>
+		<ul>
+			<li class="cd-label">Quick Links</li>
+			<li class="" id="liannouncements"><a href="#0" id="announcements">Announcements</a></li>
+			<li class="" id="lifaqs"><a href="#0" id="faqs">FAQs</a></li>
+			<li class="" id="licustomerservice"><a href="#0" id="customerservice">Customer Service</a></li>
+		</ul>
 
 
-			<div class="container-fluid divMain" id="FAQ" style="height: 100%; display:  none;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial 7</h1></div>
-				<div class="col-md-4"></div>
-			</div>
+	</nav>
+	<!--Main Page-->
 
-			<div class="container-fluid divMain" id="CustomerService" style="height: 100%; display:  none;">
-				<div class="col-md-4"></div>
-				<div class="col-md-4"><h1>Trial 8</h1></div>
-				<div class="col-md-4"></div>
-			</div>
-
-
+	<div class="content-wrapper">
+		<?php include('MainLinks.html'); ?> 
+		<div class="container-fluid divMain" id="MainPage" style="height: 100%;">
+			<?php include 'MainDiv/Main.php'; ?>
 		</div>
-	</main> 
-	<script src="../js/jquery-2.1.4.js"></script>
-	<script src="../js/jquery.menu-aim.js"></script>
-	<script src="../js/Landingmain.js"></script> 
-	<script src="../js/WebScript.js"></script> 
-	<script type="text/javascript" src="../jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
-	<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
-	<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.js" charset="UTF-8"></script>
 
-	<script type="text/javascript">
-		$(document).ready(function(){
-			$("#reset").click(function() {
-				$(this).closest('form').find("input[type=text], textarea").val("");
-				$(this).closest('form').find("input[type=number], textarea").val(null);
-				$(this).closest('form').find("select, option").val(null);
-			});
+		<div class="container-fluid divMain" id="BookFlight" style="height: 100%; display:  none;">
+			<?php include 'MainDiv/BookFlight.php'; ?>
+		</div>
+
+		<div class="container-fluid divMain" id="BookPackage" style="height: 100%; display:  none;">
+			<?php include 'MainDiv/BookPackage.php'; ?>
+		</div>
+
+		<div class="container-fluid divMain" id="ManageBooking" style="height: 100%; display:  none;">
+			<?php include 'MainDiv/ManageBooking.php'; ?>
+		</div>
+
+		<div class="container-fluid divMain" id="PakitoMiles" style="height: 100%; display:  none;">
+			<?php include 'MainDiv/PakitoMiles.php'; ?>
+		</div>
+
+		<div class="container-fluid divMain" id="FlighStatus" style="height: 100%; display:  none;">
+			<?php include 'MainDiv/CheckFlight.php'; ?>
+		</div>
+
+		<div class="container-fluid divMain" id="Announcement" style="height: 100%; display:  none;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4"><h1>Trial 6</h1></div>
+			<div class="col-md-4"></div>
+		</div>
+
+
+		<div class="container-fluid divMain" id="FAQ" style="height: 100%; display:  none;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4"><h1>Trial 7</h1></div>
+			<div class="col-md-4"></div>
+		</div>
+
+		<div class="container-fluid divMain" id="CustomerService" style="height: 100%; display:  none;">
+			<div class="col-md-4"></div>
+			<div class="col-md-4"><h1>Trial 8</h1></div>
+			<div class="col-md-4"></div>
+		</div>
+		<div class="container-fluid divMain" id="MyAccount" style="height: 100%; display:  none;">
+			<?php include 'myaccount.php'; ?>
+		</div>
+
+
+	</div>
+</main> 
+<script src="../js/jquery-2.1.4.js"></script>
+<script src="../js/jquery.menu-aim.js"></script>
+<script src="../js/Landingmain.js"></script> 
+<script src="../js/WebScript.js"></script> 
+<script type="text/javascript" src="../jquery/jquery-1.8.3.min.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="../js/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+<script type="text/javascript" src="../js/locales/bootstrap-datetimepicker.js" charset="UTF-8"></script>
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#reset").click(function() {
+			$(this).closest('form').find("input[type=text], textarea").val("");
+			$(this).closest('form').find("input[type=number], textarea").val(null);
+			$(this).closest('form').find("select, option").val(null);
 		});
-	</script>
+	});
+</script>
 
 
-	<script type="text/javascript">
-		$('.form_datetime').datetimepicker({
+<script type="text/javascript">
+	$('.form_datetime').datetimepicker({
         //language:  'fr',
         weekStart: 1,
         todayBtn:  1,
@@ -154,115 +171,116 @@ if($_SESSION['is_logged'] == FALSE){
         forceParse: 0,
         showMeridian: 1
     });
-		$('.form_date').datetimepicker({
-			language:  'fr',
-			weekStart: 1,
-			todayBtn:  1,
-			autoclose: 1,
-			todayHighlight: 1,
-			startView: 2,
-			minView: 2,
-			forceParse: 0
+	$('.form_date').datetimepicker({
+		language:  'fr',
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 2,
+		minView: 2,
+		forceParse: 0
+	});
+	$('.form_time').datetimepicker({
+		language:  'fr',
+		weekStart: 1,
+		todayBtn:  1,
+		autoclose: 1,
+		todayHighlight: 1,
+		startView: 1,
+		minView: 0,
+		maxView: 1,
+		forceParse: 0
+	});
+</script>
+
+
+<!-- Script for slideshow -->
+<script type="text/javascript">
+	$(document).ready(function(){
+
+		$("#slideshow > div:gt(0)").hide();
+
+		setInterval(function() { 
+			$('#slideshow > div:first')
+			.fadeOut(1000)
+			.next()
+			.fadeIn(1000)
+			.end()
+			.appendTo('#slideshow');
+		},  3000);
+	});
+
+
+</script>
+
+<!--  Script to execute fading animation	 -->
+<script type="text/javascript">
+
+	var varMainPage = document.getElementById('MainPage');
+	var varBookPackage = document.getElementById('BookPackage');
+	var varManageBooking = document.getElementById('ManageBooking');
+	var varBookFlight = document.getElementById('BookFlight');
+
+	var varPakitoMiles = document.getElementById('PakitoMiles');
+	var varFlighStatus = document.getElementById('FlighStatus');
+	var varAnnouncement = document.getElementById('Announcement');
+	var varFAQ = document.getElementById('FAQ');
+	var varCustomerService = document.getElementById('CustomerService');
+	var varMyAccount = document.getElementById('MyAccount');
+
+	$(document).ready(function(){
+		var $check = false;
+		var $descFrom;
+		var $descTo;
+		$('#descFrom').on('change', function() {
+			$descFrom = this.value;
+		})
+		$('#descTo').on('change', function() {
+			$descTo = this.value;
+		})
+		$("#checkBtn").click(function(){
+			var $dateFrom = $('#dateFrom').val();
+			var $dateTo = $('#dateTo').val();
+
+			if($descTo == $descFrom ||  $descTo == null || $descFrom == null){
+				$("#divFrom").addClass('btn-danger');
+				$("#divTo").addClass('btn-danger');
+				$check = false;
+			}else{
+				$check = true;
+			}
+
+			if ($dateFrom == "") {
+				$("#dateFrom").addClass('btn-danger');
+				$check = false;
+			}else{
+				$("#dateFrom").removeClass('btn-danger');
+			}
+			if ($dateTo == "") {
+				$("#dateTo").addClass('btn-danger');
+				$check = false;
+			}else{
+				$("#dateTo").removeClass('btn-danger');
+			}
+			if ($dateFrom == $dateTo || $dateFrom > $dateTo) {
+				$("#dateTo").addClass('btn-danger');
+				$("#dateFrom").addClass('btn-danger');
+				$check = false;
+			}else{
+				$("#dateTo").removeClass('btn-danger');
+				$("#dateFrom").removeClass('btn-danger');
+			}
+
+			if ($check == true) {
+				$("#divFrom").removeClass('btn-danger');
+				$("#divTo").removeClass('btn-danger');
+				$("#submitBtn").fadeIn("slow"); 
+				$("#checkBtn").hide();
+			} else {
+
+			}
 		});
-		$('.form_time').datetimepicker({
-			language:  'fr',
-			weekStart: 1,
-			todayBtn:  1,
-			autoclose: 1,
-			todayHighlight: 1,
-			startView: 1,
-			minView: 0,
-			maxView: 1,
-			forceParse: 0
-		});
-	</script>
-
-
-	<!-- Script for slideshow -->
-	<script type="text/javascript">
-		$(document).ready(function(){
-
-			$("#slideshow > div:gt(0)").hide();
-
-			setInterval(function() { 
-				$('#slideshow > div:first')
-				.fadeOut(1000)
-				.next()
-				.fadeIn(1000)
-				.end()
-				.appendTo('#slideshow');
-			},  3000);
-		});
-
-
-	</script>
-
-	<!--  Script to execute fading animation	 -->
-	<script type="text/javascript">
-
-		var varMainPage = document.getElementById('MainPage');
-		var varBookPackage = document.getElementById('BookPackage');
-		var varManageBooking = document.getElementById('ManageBooking');
-		var varBookFlight = document.getElementById('BookFlight');
-
-		var varPakitoMiles = document.getElementById('PakitoMiles');
-		var varFlighStatus = document.getElementById('FlighStatus');
-		var varAnnouncement = document.getElementById('Announcement');
-		var varFAQ = document.getElementById('FAQ');
-		var varCustomerService = document.getElementById('CustomerService');
-
-		$(document).ready(function(){
-			var $check = false;
-			var $descFrom;
-			var $descTo;
-			$('#descFrom').on('change', function() {
-				$descFrom = this.value;
-			})
-			$('#descTo').on('change', function() {
-				$descTo = this.value;
-			})
-			$("#checkBtn").click(function(){
-				var $dateFrom = $('#dateFrom').val();
-				var $dateTo = $('#dateTo').val();
-
-				if($descTo == $descFrom ||  $descTo == null || $descFrom == null){
-					$("#divFrom").addClass('btn-danger');
-					$("#divTo").addClass('btn-danger');
-					$check = false;
-				}else{
-					$check = true;
-				}
-
-				if ($dateFrom == "") {
-					$("#dateFrom").addClass('btn-danger');
-					$check = false;
-				}else{
-					$("#dateFrom").removeClass('btn-danger');
-				}
-				if ($dateTo == "") {
-					$("#dateTo").addClass('btn-danger');
-					$check = false;
-				}else{
-					$("#dateTo").removeClass('btn-danger');
-				}
-				if ($dateFrom == $dateTo || $dateFrom > $dateTo) {
-					$("#dateTo").addClass('btn-danger');
-					$("#dateFrom").addClass('btn-danger');
-					$check = false;
-				}else{
-					$("#dateTo").removeClass('btn-danger');
-					$("#dateFrom").removeClass('btn-danger');
-				}
-
-				if ($check == true) {
-					$("#divFrom").removeClass('btn-danger');
-					$("#divTo").removeClass('btn-danger');
-					$("#submitBtn").fadeIn("slow"); 
-					$("#checkBtn").hide();
-				} else {
-
-				}
-			});
 
 
 			//Main nav onclick
@@ -287,6 +305,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varFlighStatus).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 
 				} else { 	
@@ -318,6 +337,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -348,6 +368,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -377,6 +398,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varFlighStatus).fadeOut("slow"); 
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
@@ -408,6 +430,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varAnnouncement).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -438,6 +461,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varBookPackage).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -469,6 +493,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -499,6 +524,7 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -529,12 +555,50 @@ if($_SESSION['is_logged'] == FALSE){
 					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
 
 				}
 			});
+
+
+
+			//My Account nav onclick
+			$("#myAccount").click(function(){
+
+				// active css toggle
+				$("#limyAccount").addClass('active');
+				$("#libookflight").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				//
+				if (varMyAccount.style.display === 'none') {
+					$(varMyAccount).fadeIn("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
+
+				} else {
+
+				}
+			});
+
+
+
 
 
 		});
