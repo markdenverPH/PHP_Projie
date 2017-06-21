@@ -116,9 +116,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 		</div>
 
 		<div class="container-fluid divMain" id="Announcement" style="height: 100%; display:  none;">
-			<div class="col-md-4"></div>
-			<div class="col-md-4"><h1>Trial 6</h1></div>
-			<div class="col-md-4"></div>
+			<?php include 'MainDiv/try.php'; ?>
 		</div>
 
 

@@ -1,14 +1,4 @@
-	<center><h1>My flights - Status
-
-
-
-
-
-
-
-
-
-	</h1></center>
+	<center><h1>My flights - Status</h1></center>
 
 	<?php
 
@@ -32,7 +22,6 @@
 				</tr>
 			</thead>		
 			<tbody>
-				<tr class="info">
 					<?php
 					While($row3 = mysqli_fetch_array($result)){
 
@@ -42,15 +31,16 @@
 						$fl_from = $row3['FL_FROM'];
 						$fl_to = $row3['FL_TO'];
 						$fl_status = $row3['status'];
+						echo "<tr class='info'>";
 						echo "<td> $fl_id </td>";
 						echo "<td>". date("F j, Y ",$fl_departdate)."</td>";
 						echo "<td>". date("F j, Y ",$fl_returndate)."</td>";
 						echo "<td> $fl_from </td>";
 						echo "<td> $fl_to </td>";
 						echo "<td> $fl_status </td>";
+						echo "</tr>";
 					}
-				}
 				?>
-			</tr>
 		</tbody>
 	</table>
+<?php } ?>
