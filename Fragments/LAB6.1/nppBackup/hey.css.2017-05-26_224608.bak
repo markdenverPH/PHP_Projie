@@ -1,0 +1,18 @@
+.bord_me{
+	border:2px solid yellow;
+}
+body{
+	background-image:url('bg.jpg');
+}
+label{
+	color:yellow;
+	font-size:30px;
+	font-family:Oswald;
+	margin-top:2vh;
+}
+.formdiv{
+	border-radius:1vw;
+	margin-top:10vw;
+	background-color:#95a5a6;
+	padding:0vw 3vw 3vw 3vw;
+}
