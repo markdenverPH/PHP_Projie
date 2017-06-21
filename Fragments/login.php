@@ -276,6 +276,27 @@ if (isset($_SESSION['is_logged'])) {
 </div>
 </div>
 
+<?php 
+if (isset($_POST['validate-submit'])) {
+
+  if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"])
+  {
+
+    ?>
+
+
+
+    <?php
+    echo "Correct Code Entered";
+  }
+  else
+  {
+    die("Wrong Code Entered");
+  }
+
+}
+?>
+
 <script>
   function check_pass() {
     if (document.getElementById('password_input').value ==
