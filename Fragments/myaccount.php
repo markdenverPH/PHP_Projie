@@ -23,14 +23,20 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 				$lname = $row3['PASS_LASTNAME'];
 				$username = $row3['PASS_EMAIL'];
 				$address = $row3['PASS_ADDRESS'];
-				$gender = $row3['PASS_ADDRESS'];
+				$gender = $row3['PASS_GENDER'];
 
 				?>
 				<center><img style="height: 150px; width: 150px;" class="img-circle" src = "<?php echo $row3['images_path']; ?>"></center>
 				<h1><?php echo "$fname $mname $lname" ?></h1>
-				<div class="col-md-9">
+				<div class="row">
+
+
+
+
 
 					<form action="saveimage.php" enctype="multipart/form-data" method="post">
+
+
 						<label class="pull-left ">Email</label>
 						<label class="pull-right"><?php echo "$username"; ?></label><br>
 						<label class="pull-left">Address</label>
@@ -48,9 +54,6 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					</form>
 
 				</div>
-				<div class="col-md-1"></div>
-				<div class="col-md-2"></div>
-
 
 				<?php
 			}

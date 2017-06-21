@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jun 20, 2017 at 07:28 PM
+-- Generation Time: Jun 21, 2017 at 05:55 AM
 -- Server version: 10.1.21-MariaDB
 -- PHP Version: 7.1.2
 
@@ -43,19 +43,22 @@ CREATE TABLE `flight` (
   `FL_CLASS` varchar(11) NOT NULL,
   `FL_DEPARTDATE` int(11) NOT NULL,
   `FL_RETURNDATE` int(11) NOT NULL,
-  `FL_TO` varchar(11) NOT NULL,
-  `FL_FROM` varchar(11) NOT NULL,
+  `FL_TO` varchar(225) NOT NULL,
+  `FL_FROM` varchar(225) NOT NULL,
   `FL_PASSQTY` int(11) NOT NULL,
   `FL_FARE` double NOT NULL,
-  `user_id` int(11) NOT NULL
+  `user_id` int(11) NOT NULL,
+  `status` varchar(225) NOT NULL DEFAULT 'TBA'
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `flight`
 --
 
-INSERT INTO `flight` (`FL_ID`, `FL_CLASS`, `FL_DEPARTDATE`, `FL_RETURNDATE`, `FL_TO`, `FL_FROM`, `FL_PASSQTY`, `FL_FARE`, `user_id`) VALUES
-(15, 'BSNS', 1496246400, 1497456000, 'Calbayog', 'Basco (Bata', 2, 44000, 8);
+INSERT INTO `flight` (`FL_ID`, `FL_CLASS`, `FL_DEPARTDATE`, `FL_RETURNDATE`, `FL_TO`, `FL_FROM`, `FL_PASSQTY`, `FL_FARE`, `user_id`, `status`) VALUES
+(17, 'ECNMY', 1496246400, 1496419200, 'Butuan', 'Basco (Batanes)', 4, 48000, 8, 'TBA'),
+(18, 'ECNMY', 1488902400, 1497024000, 'Cagayan de Oro ', 'Bacolod', 2, 40000, 8, 'TBA'),
+(19, 'ECNMY', 1496851200, 0, 'Butuan', 'Busuanga (Coron) ', 2, 8000, 8, 'TBA');
 
 -- --------------------------------------------------------
 
@@ -72,15 +75,16 @@ CREATE TABLE `passenger` (
   `PASS_MIDDLENAME` varchar(100) NOT NULL,
   `PASS_LASTNAME` varchar(100) NOT NULL,
   `PASS_EMAIL` varchar(100) NOT NULL,
-  `PASS_PASSWORD` varchar(100) NOT NULL
+  `PASS_PASSWORD` varchar(100) NOT NULL,
+  `images_path` varchar(225) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `passenger`
 --
 
-INSERT INTO `passenger` (`PASS_ID`, `PASS_AGE`, `PASS_ADDRESS`, `PASS_GENDER`, `PASS_FIRSTNAME`, `PASS_MIDDLENAME`, `PASS_LASTNAME`, `PASS_EMAIL`, `PASS_PASSWORD`) VALUES
-(8, 18, '1020a, Metrica St., Sampaloc, Manila', 'MALE', 'Angelo', 'Ecura', 'Ganaden Jr', 'angelojrganaden@gmail.com', '12345678');
+INSERT INTO `passenger` (`PASS_ID`, `PASS_AGE`, `PASS_ADDRESS`, `PASS_GENDER`, `PASS_FIRSTNAME`, `PASS_MIDDLENAME`, `PASS_LASTNAME`, `PASS_EMAIL`, `PASS_PASSWORD`, `images_path`) VALUES
+(8, 18, '1020a, Metrica St., Sampaloc, Manila', 'MALE', 'Angelo', 'Ecura', 'Ganaden Jr', 'angelojrganaden@gmail.com', '12345678', 'assets/img/21-06-2017-1498002899.jpg');
 
 -- --------------------------------------------------------
 
@@ -94,6 +98,13 @@ CREATE TABLE `transaction` (
   `transaction_type` varchar(255) NOT NULL,
   `user_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `transaction`
+--
+
+INSERT INTO `transaction` (`transaction_id`, `transaction_date`, `transaction_type`, `user_id`) VALUES
+(1, 1498016470, 'package', 8);
 
 --
 -- Indexes for dumped tables
@@ -136,7 +147,7 @@ ALTER TABLE `airplane`
 -- AUTO_INCREMENT for table `flight`
 --
 ALTER TABLE `flight`
-  MODIFY `FL_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `FL_ID` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=20;
 --
 -- AUTO_INCREMENT for table `passenger`
 --
@@ -146,7 +157,7 @@ ALTER TABLE `passenger`
 -- AUTO_INCREMENT for table `transaction`
 --
 ALTER TABLE `transaction`
-  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `transaction_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
