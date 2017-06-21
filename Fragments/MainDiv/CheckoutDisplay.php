@@ -40,7 +40,7 @@
 					echo "	<tr class='info'>";
 					echo "<td> $fl_id </td>";
 					echo "<td> $fl_class </td>";
-					echo "<td>". date("F j, Y ",$fl_departdate)."</td>";
+					echo "<td>". date("F j, Y ",$fl_departdate)."</td>"; 	
 					echo "<td>". date("F j, Y ",$fl_returndate)."</td>";
 					echo "<td> $fl_from </td>";
 					echo "<td> $fl_to </td>";
