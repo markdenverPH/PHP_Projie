@@ -30,7 +30,7 @@ if (!empty($_FILES["uploadedimage"]["name"])) {
    if(move_uploaded_file($temp_name, $target_path)) {
    $query_upload="UPDATE passenger SET images_path = '$target_path' WHERE PASS_ID='$user_id'";
    mysqli_query($con, $query_upload) or die("error in $query_upload == ----> ".mysqli_error($con)); 
-   header('Location: main_member.php');
+   header('Location: Landing.php');
   }else{
    exit("Error While uploading image on the server");
  }

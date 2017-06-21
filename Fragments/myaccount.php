@@ -30,13 +30,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 				<h1><?php echo "$fname $mname $lname" ?></h1>
 				<div class="row">
 
-
-
-
-
 					<form action="saveimage.php" enctype="multipart/form-data" method="post">
-
-
 						<label class="pull-left ">Email</label>
 						<label class="pull-right"><?php echo "$username"; ?></label><br>
 						<label class="pull-left">Address</label>
