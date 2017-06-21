@@ -29,12 +29,26 @@ if (isset($_POST['register-submit'])) {
 
      if ($booleanInsert == true) {
           if (mysqli_query($con, $query_upload) or die("error in $query_upload == ----> ".mysqli_error($con))){
-               echo "success";
+               echo'
+                    <script>alert("Registration success! Test your account by logging in.");</script>
+               ';
+               header('location:login.php');
+               exit();
           }else{
-               echo "failes";
+               echo '
+                    <script>
+                         alert("Registration Failed!");
+                         history.go(-1);
+                    </script>
+               ';
           }
      }else{
-          echo "dup account";
+          echo '
+               <script>
+                    alert("Duplicate Account!");
+                    history.go(-1);
+               </script>
+          ';
      }
 }
 ?>
