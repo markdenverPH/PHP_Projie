@@ -27,6 +27,7 @@
                     </li>
                     <li class="list-group-item listClass">July 1 2017 - July 3 2017</li>
                     <li class="list-group-item listClass">P19,000.00</li>
+                    <li class="list-group-item listClass">Economy Class</li>
                     <li class="list-group-item listClass">
                          <form method="post" action="MainDiv/BookPackage_Enter.php">
                               <input type="hidden" name="BP_title1" value="Henann Regency Resort And Spa"/>
@@ -38,6 +39,7 @@
                               <input type="hidden" name="BP_pack1" value="Hotel + Transportation"/>
                               <input type="hidden" name="BP_sched1" value="July 1 2017 - July 3 2017"/>
                               <input type="hidden" name="BP_price1" value="19000"/>
+                              <input type="hidden" name="BP_class1" value="Economy"/>
                               <div id="divFrom" class="form-group">
                                    <label> Origin</label>
                                    <select style="width: 100%;" id="descFrom" name="orig1">		<!-- name="descFromS"  -->
@@ -77,6 +79,7 @@
                     </li>
                     <li class="list-group-item listClass">July 14 2017 - July 16 2017</li>
                     <li class="list-group-item listClass">P24,000.00</li>
+                    <li class="list-group-item listClass">Business Class</li>
                     <li class="list-group-item listClass">
                          <form method="post" action="MainDiv/BookPackage_Enter.php">
                               <input type="hidden" name="BP_title1" value="Paradise Island Park & Beach Resort"/>
@@ -88,6 +91,7 @@
                               <input type="hidden" name="BP_pack1" value="Hotel + Transportation"/>
                               <input type="hidden" name="BP_sched1" value="July 14 2017 - July 16 2017"/>
                               <input type="hidden" name="BP_price1" value="24000.00"/>
+                              <input type="hidden" name="BP_class1" value="Business"/>
                               <div id="divFrom" class="form-group">
                                    <label> Origin</label>
                                    <select style="width: 100%;" id="descFrom" name="orig1">
@@ -127,6 +131,7 @@
                     </li>
                     <li class="list-group-item listClass">July 28 2017 - July 30 2017</li>
                     <li class="list-group-item listClass">P9,000.00</li>
+                    <li class="list-group-item listClass">Economy Class</li>
                     <li class="list-group-item listClass">
                          <form method="post" action="MainDiv/BookPackage_Enter.php">
                               <input type="hidden" name="BP_title1" value="Best Western Plus The Ivywall Hotel"/>
@@ -138,6 +143,7 @@
                               <input type="hidden" name="BP_pack1" value="Hotel + Transportation"/>
                               <input type="hidden" name="BP_sched1" value="July 28 2017 - July 30 2017"/>
                               <input type="hidden" name="BP_price1" value="9000.00"/>
+                              <input type="hidden" name="BP_class1" value="Economy Class"/>
                               <div id="divFrom" class="form-group">
                                    <label> Origin</label>
                                    <select style="width: 100%;" id="descFrom" name="orig1">

@@ -1,6 +1,8 @@
 <?php
      $airfare = 0;
      $pass=$_POST['passenger'];
+     $hold_date_from=0;
+     $hold_date_to=0;
      function wrong(){
           echo'
                <script>
@@ -18,6 +20,8 @@
                }
                $airfare = $temp * 2000;
                $airfare = $airfare * $pass;
+               $hold_date_from = strtotime("July 1 2017");
+               $hold_date_to = strtotime("July 3 2017");
           } else {
                wrong();
           }
@@ -30,6 +34,8 @@
                }
                $airfare = $temp * 2000;
                $airfare = $airfare * $pass;
+               $hold_date_from = strtotime("July 14 2017");
+               $hold_date_to = strtotime("July 16 2017");
           } else {
                wrong();
           }
@@ -42,6 +48,8 @@
                }
                $airfare = $temp * 2000;
                $airfare = $airfare * $pass;
+               $hold_date_from = strtotime("July 28 2017");
+               $hold_date_to = strtotime("July 30 2017");
           } else {
                wrong();
           }
@@ -64,6 +72,12 @@
      $pack=$_POST['BP_pack1'];
      $sched=$_POST['BP_sched1'];
      $price=$_POST['BP_price1'];
+     $class=$_POST['BP_class1'];
+
+     $var_descTo=$_POST['orig1'];
+     $var_descFrom=$_POST['orig1'];
+     $var_descFromWords="";
+     include("BookFlight-Destinations-Words.php");
 ?>
      <div class="row">
           <div class="col-md-3"></div>
@@ -76,9 +90,11 @@
                     <div class="col-md-6">
                          <p><?php echo 'Good for '.$pax.' person'; ?></p>
                          <p><?php echo $days; ?></p>
+                         <p>Origin Airport: <?php echo $var_descToWords; ?></p>
                          <p>Destined Airport: <?php echo $airport; ?></p>
                     </div>
                     <div class="col-md-6">
+                         <p>Flight Class: <?php echo $class; ?></p>
                          <p>Trip type: <?php echo $trip; ?></p>
                          <p>Inclusion: <?php echo $pack; ?></p>
                          <p>Schedule: <?php echo $sched; ?></p>
@@ -98,13 +114,13 @@
                     </div>
                </div>
                <form method="post" action="BookPackage_exec.php">
-                    <?php
-                         date_default_timezone_set("Asia/Manila");
-                         // time() will return a unix timestamp
-                         $hold_time = time(date("m/d/y h:i:s A",time()));
-                    ?>
-                    <input type="hidden" name="transac_date" value="<?php echo $hold_time; ?>"/>
+                    <input type="hidden" name="hold_date_to" value="<?php echo $hold_date_to; ?>"/>
+                    <input type="hidden" name="hold_date_from" value="<?php echo $hold_date_from; ?>"/>
+                    <input type="hidden" name="class" value="<?php echo $class; ?>"/>
+                    <input type="hidden" name="port_from" value="<?php echo $var_descFromWords; ?>"/>
+                    <input type="hidden" name="port_to" value="<?php echo $airport; ?>"/>
                     <input type="hidden" name="total" value="<?php echo $airfare + $price; ?>"/>
+                    <input type="hidden" name="pax" value="<?php echo $pax; ?>"/>
                     <div class="form-group ">
                          <label>Payment:</label>
                          <input type="text" class="form-control" placeholder="PAYMENT" name ="payment"required>
