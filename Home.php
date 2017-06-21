@@ -33,7 +33,7 @@ Just testing
 			</a> <!-- .nav-trigger -->
 
 			<ul id="cd-navigation">
-				<li><a href="#0">Flight Packages</a></li>
+				<li><a href="Fragments/Landing.php">Flight Packages</a></li>
 				<li><a href="#0">About Us</a></li>
 				<li><a href="#0" >Contacts</a></li>
 				<li  ><a href="fragments/login.php"><b>Login</b></a></li>

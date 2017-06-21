@@ -8,7 +8,7 @@
 							proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</h3>
 						<div class="container-fluid">
 								<div class="row" style="position: absolute; bottom: 5%;">
-								<a href="#">
+								<a href="Fragments/Landing.php">
 									<div class="col-md-4">
 										<div class="card">
 											<center><img class="card-img-top" src="assets/img/ic_hotel.png"></center>	
@@ -16,7 +16,7 @@
 										</div>
 									</div>
 								</a>
-								<a href="#">
+								<a href="Fragments/Landing.php">
 									<div class="col-md-4">
 										<div class="card">
 											<center><img class="card-img-top" src="assets/img/ic_flight.png"></center>	
@@ -24,7 +24,7 @@
 										</div>
 									</div>
 								</a>
-								<a href="#">
+								<a href="Fragments/Landing.php">
 									<div class="col-md-4">
 										<div class="card">
 											<center><img class="card-img-top" src="assets/img/ic_package.png"></center>	

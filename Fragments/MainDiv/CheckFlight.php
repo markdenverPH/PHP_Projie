@@ -1,22 +1,56 @@
-<style type="text/css">
-	input[type=text] {
-    width: 130px;
-    box-sizing: border-box;
-    border: 2px solid #ccc;
-    border-radius: 4px;
-    font-size: 16px;
-    background-color: white;
-    background-image: url('searchicon.png');
-    background-position: 10px 10px; 
-    background-repeat: no-repeat;
-    padding: 12px 20px 12px 40px;
-    -webkit-transition: width 0.4s ease-in-out;
-    transition: width 0.4s ease-in-out;
-	}
+	<center><h1>My flights - Status
 
-	/* When the input field gets focus, change its width to 100% */
-	input[type=text]:focus {
-		width: 100%;
-	} 
-</style>
-<input type="text" name="search" placeholder="Search..">
+
+
+
+
+
+
+
+
+	</h1></center>
+
+	<?php
+
+	$userid = $_SESSION['id'] ;
+	include("conn.php");
+	$sql = "SELECT * FROM flight where user_id = $userid";
+
+	$result = mysqli_query($con, $sql);
+
+	if ($result) {
+		?>
+		<table class="table">
+			<thead>
+				<tr>
+					<th>Flight ID</th>
+					<th>Flight Departure Date</th>
+					<th>Flight Return Date</th>
+					<th>Flight From</th>
+					<th>Flight To</th>
+					<th>Fligh Status</th>
+				</tr>
+			</thead>		
+			<tbody>
+				<tr class="info">
+					<?php
+					While($row3 = mysqli_fetch_array($result)){
+
+						$fl_id = $row3['FL_ID'];
+						$fl_departdate = $row3['FL_DEPARTDATE'];
+						$fl_returndate = $row3['FL_RETURNDATE'];
+						$fl_from = $row3['FL_FROM'];
+						$fl_to = $row3['FL_TO'];
+						$fl_status = $row3['status'];
+						echo "<td> $fl_id </td>";
+						echo "<td>". date("F j, Y ",$fl_departdate)."</td>";
+						echo "<td>". date("F j, Y ",$fl_returndate)."</td>";
+						echo "<td> $fl_from </td>";
+						echo "<td> $fl_to </td>";
+						echo "<td> $fl_status </td>";
+					}
+				}
+				?>
+			</tr>
+		</tbody>
+	</table>
