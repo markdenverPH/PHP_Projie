@@ -7,7 +7,7 @@ if($_SESSION['is_logged'] == FALSE){
 	header("Location: login.php");
 }	
 ?>
-
+<!-- modal view controller -->
 <!doctype html>
 <html lang="en" class="no-js">
 <head>
@@ -32,6 +32,8 @@ if($_SESSION['is_logged'] == FALSE){
 		include('conn.php');
 		$user_id = $_SESSION['id'];
 		$result3 = mysqli_query($con,"SELECT * FROM passenger WHERE PASS_ID='$user_id'");
+		$passFlight = mysqli_query($con,"SELECT * FROM flight WHERE user_id='$user_id'");
+		$totalItems = mysqli_num_rows($passFlight);
 if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 {
 
@@ -43,7 +45,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 
 	<nav class="cd-nav">
 		<ul class="cd-top-nav">
-			<li><a href="#0">Pakito Store</a></li>
+			<li id="licheckout"><a href="#0" id="checkout">Checkout <span class="badge" style="background-color: #EF4836;"><?php echo "$totalItems"; ?></span></a></li>
 			<li><a href="#0">Support</a></li>
 
 			<?php 
@@ -135,7 +137,13 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 			<?php include 'myaccount.php'; ?>
 		</div>
 
+		<div class="container-fluid divMain" id="MyAccount" style="height: 100%; display:  none;">
+			<?php include 'myaccount.php'; ?>
+		</div>
 
+		<div class="container-fluid divMain" id="CheckOut" style="height: 100%; display:  none;">
+			<?php include 'checkout.php'; ?>
+		</div>
 	</div>
 </main> 
 <script src="../js/jquery-2.1.4.js"></script>
@@ -219,13 +227,13 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 	var varBookPackage = document.getElementById('BookPackage');
 	var varManageBooking = document.getElementById('ManageBooking');
 	var varBookFlight = document.getElementById('BookFlight');
-
 	var varPakitoMiles = document.getElementById('PakitoMiles');
 	var varFlighStatus = document.getElementById('FlighStatus');
 	var varAnnouncement = document.getElementById('Announcement');
 	var varFAQ = document.getElementById('FAQ');
 	var varCustomerService = document.getElementById('CustomerService');
 	var varMyAccount = document.getElementById('MyAccount');
+	var varCheckout = document.getElementById('CheckOut');
 
 	$(document).ready(function(){
 		var $check = false;
@@ -304,6 +312,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varCustomerService).fadeOut("slow"); 
 					$(varFAQ).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 
 				} else { 	
@@ -336,6 +345,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -367,6 +377,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -398,6 +409,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varFAQ).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -429,6 +441,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -460,6 +473,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varFAQ).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -492,6 +506,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varBookPackage).fadeOut("slow"); 
 					$(varCustomerService).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -523,6 +538,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -553,6 +569,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMyAccount).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
@@ -588,6 +605,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 					$(varPakitoMiles).fadeOut("slow"); 
 					$(varManageBooking).fadeOut("slow"); 
 					$(varBookPackage).fadeOut("slow"); 
+					$(varCheckout).fadeOut("slow"); 
 					$(varMainPage).fadeOut("slow"); 
 
 				} else {
@@ -596,7 +614,37 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 			});
 
 
+			//My Account nav onclick
+			$("#checkout").click(function(){
+				// active css toggle
+				$("#limyAccount").removeClass('active');
+				$("#libookflight").removeClass('active');
+				$("#licustomerservice").removeClass('active');
+				$("#lifaqs").removeClass('active');
+				$("#liannouncements").removeClass('active');
+				$("#liflightstatus").removeClass('active');
+				$("#lipakitomiles").removeClass('active');
+				$("#limanagebooking").removeClass('active');
+				$("#libookpackage").removeClass('active');
+				$("#limainpagee").removeClass('active');
+				//
+				if (varCheckout.style.display === 'none') {
+					$(varCheckout).fadeIn("slow"); 
+					$(varMyAccount).fadeOut("slow"); 
+					$(varBookFlight).fadeOut("slow"); 
+					$(varCustomerService).fadeOut("slow"); 
+					$(varFAQ).fadeOut("slow"); 
+					$(varAnnouncement).fadeOut("slow"); 
+					$(varFlighStatus).fadeOut("slow"); 
+					$(varPakitoMiles).fadeOut("slow"); 
+					$(varManageBooking).fadeOut("slow"); 
+					$(varBookPackage).fadeOut("slow"); 
+					$(varMainPage).fadeOut("slow"); 
 
+				} else {
+
+				}
+			});
 
 
 		});
