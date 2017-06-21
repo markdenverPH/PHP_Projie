@@ -127,7 +127,7 @@ if 	(mysqli_num_rows($result3) > 0 ) // this eliminate the 0 row problem
 		</div>
 
 		<div class="container-fluid divMain" id="CustomerService" style="height: 100%; display:  none;">
-		<?php include 'services.php'; ?>
+		 <?php include 'services.php'; ?>
 		</div>
 		<div class="container-fluid divMain" id="MyAccount" style="height: 100%; display:  none;">
 			<?php include 'myaccount.php'; ?>
