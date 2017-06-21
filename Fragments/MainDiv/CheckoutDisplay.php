@@ -1,11 +1,11 @@
-	<center><h1>Item Cart</h1></center>
+	<center><h1>Checkout</h1></center>
 
 	<?php
 
 	$userid = $_SESSION['id'] ;
 	include("conn.php");
 	$sql = "SELECT * FROM flight where user_id = $userid";
-
+	$Total = 0;
 	$result = mysqli_query($con, $sql);
 
 	if ($result) {
@@ -37,6 +37,7 @@
 					$fl_to = $row3['FL_TO'];
 					$fl_passqty = $row3['FL_PASSQTY'];
 					$fl_flare = $row3['FL_FARE'];
+					$Total = $Total + $fl_flare;
 					echo "	<tr class='info'>";
 					echo "<td> $fl_id </td>";
 					echo "<td> $fl_class </td>";
@@ -48,6 +49,8 @@
 					echo "<td> $fl_flare </td>";
 					echo "</tr>";
 				}
+
+				echo "$Total";
 			}
 			?>
 		</tbody>
