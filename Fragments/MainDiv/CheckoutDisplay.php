@@ -1,4 +1,5 @@
-	<center><h1>Checkout</h1></center>
+	<center><h1>Checkout
+	 </h1></center>
 
 	<?php
 
