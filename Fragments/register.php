@@ -1,7 +1,20 @@
 <?php
 include("conn.php");
 
+//////////////////////////////////////////////////////////////////////// moy
+session_start();
+if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"])
+{
+   //  echo "Correct Code Entered";
+}
+else
+{    
+     $_SESSION['ERROR'] = "Invalid Captcha";
+     header("Location: login.php");
+     die();
+}
 
+////////////////////////////////////////////////////////////////////////
 
 if (isset($_POST['register-submit'])) {
      $firstname = $_POST['firstname'];
