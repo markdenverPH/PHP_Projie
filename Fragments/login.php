@@ -82,214 +82,199 @@ if (isset($_SESSION['is_logged'])) {
           <?php 
 
           if (isset($_SESSION['ERROR'])) {
-              if ( $_SESSION['ERROR']!= null) {?>
+            if ( $_SESSION['ERROR']== "Invalid Captcha") {?>
 
 
-                <div class='row'>
-                <center>
+            <div class='row' id="captcha_error">
+              <center>
                 <h1 style='color = red;'> <?php echo  $_SESSION['ERROR'] ?> </h1>
-                </center>
-                </div>
-
-                <?php
-              }
-          }
-           ?>
-          <hr>
-        </div>
-        <div class="panel-body">
-          <div class="row">
-            <div class="col-lg-12">
-              <form id="login-form" action="" method="post" role="form" style="display: block;">
-                <div class="form-group">
-                  <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
-                </div>
-                <div class="form-group">
-                  <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
-                </div>
-                <div class="form-group text-center">
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-sm-6 col-sm-offset-3">
-                      <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn ButtonLogin" value="Log In">
-                    </div>
-                  </div>
-                </div>
-                <div class="form-group">
-                  <div class="row">
-                    <div class="col-lg-12">
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </form>
+                <?php 
+                session_unset($_SESSION['ERROR']); ?>
+              </center>
+            </div>
 
             <?php
-
-            if (isset($_POST['login-submit'])) {
-              include("conn.php");
-              $username = $_POST['username'];
-              $password = $_POST['password'];
-              $booleanLogin = false;
-              $selectQRY = "SELECT * FROM passenger WHERE pass_email = '$username' AND pass_password = '$password';";
-
-              $checkdAcc = mysqli_query($con,$selectQRY);
-              While($row3 = mysqli_fetch_array($checkdAcc)){
-
-                $userid = $row3['PASS_ID'];
-
-                $_SESSION['id'] =  $userid;
-              }
-
-              if (mysqli_num_rows($checkdAcc) > 0) {
-                $booleanLogin = true;
-                $data = mysqli_fetch_assoc( $checkdAcc );
-              }
-              if ($checkdAcc) {
-                if($booleanLogin == true)  {
-                  $_SESSION['is_logged'] = true;
-
-                  echo '<script type="text/javascript">
-                  window.location.href = "http://localhost/PHP_Projie/fragments/Landing.php"
-                </script>';
-              }else{
-                echo "<script> alert('failed') </script>";
-
-              }
-            }
-
-
           }
-
-          ?>
-
-          <!-- ALERT -->
-          <div class="cd-popup" role="alert">
-            <div class="cd-popup-container">
-              <p>Are you sure you want to delete this element?</p>
-              <ul class="cd-buttons">
-                <li><a href="#0">Yes</a></li>
-                <li><a href="#0">No</a></li>
-              </ul>
-              <a href="#0" class="cd-popup-close img-replace">Close</a>
-            </div> <!-- cd-popup-container -->
-          </div>
-
-          <form id="register-form" action="register.php" method="post" role="form" style="display: none;">
-            <div class="form-group container-fluid">
-              <div class="col-sm-4">
-
-                <label for="">FIRST NAME</label>
-                <input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="" required>
-              </div>
-              <div class="col-sm-4">
-
-                <label for="">MIDDLE NAME</label>
-                <input type="text" name="middlename" id="middlename" tabindex="1" class="form-control" placeholder="Middle Name" value="" required>
-              </div>
-              <div class="col-sm-4">
-
-                <label for="lastname">LAST NAME</label>
-                <input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="Last Name" value="" required>
-              </div>
-            </div>
-            <div class="form-group container-fluid" >
-              <div class="col-md-4">
-                <label for="age">AGE</label>
-                <select class="form-control" id="age" name="age">
-                  <?php for ($i=18; $i < 200 ; $i++) { ?>
-                  <option><?php echo "$i";  ?></option>
-                  <?php } ?>
-                </select>
-              </div>
-              <div class="col-md-4">
-                <label for="age">GENDER</label>
-                <select class="form-control" id="gender" name="gender">
-                  <option>MALE</option>
-                  <option>FEMALE</option>
-                </select>
-              </div>
-            </div>
-            <div class="form-group container-fluid">
-              <div class="col-sm-12">
-
-                <label for="">EMAIL</label>
-                <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" required>
-              </div>
-            </div>
-            <div class="form-group container-fluid">
-              <div class="col-sm-12">
-
-                <label for="">ADDRESS</label>
-                <input type="address" name="address" id="address" tabindex="1" class="form-control" placeholder="Address" value="" required>
-              </div>
-            </div>
-            <div class="form-group container-fluid">
-              <div class="col-sm-10">
-
-                <label for="">PASSWORD</label> <label id="message"></label>
-                <input type="password" name="password_input" id="password_input" tabindex="2" class="form-control" placeholder="Password" required
-                pattern=".{8,}" title="8 characters minimum" onkeyup='check_pass()'>
-              </div>
-              <div class="col-sm-2">
-
-                <button type="button" class="button_login" id="showPass" style="margin-top: 70%;"> <p id="txtShow">Show</p></button>
-              </div>
-            </div>
-            <div class="form-group container-fluid">
-              <div class="col-sm-10">
-                <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" required pattern=".{8,}" title="8 characters minimum" onkeyup='check_pass()'>
-              </div>
-              <div class="col-sm-2">
-
-                <button type="button" class="button_login" id="showPass_2" style="margin-top: 20%;"> <p id="txtShow_2">Show</p></button>
-              </div>
-
+          else{?>
+          <?php
+          session_unset($_SESSION['ERROR']);
+        }
+      }
+      ?>
+      <hr>
+    </div>
+    <div class="panel-body">
+      <div class="row">
+        <div class="col-lg-12">
+          <form id="login-form" action="" method="post" role="form" style="display: block;">
+            <div class="form-group">
+              <input type="text" name="username" id="username" tabindex="1" class="form-control" placeholder="Username" value="">
             </div>
             <div class="form-group">
-              <center>
-                <input name="captcha" type="text">
-                <img src="captcha.php" /><br>
-              </center>
+              <input type="password" name="password" id="password" tabindex="2" class="form-control" placeholder="Password">
+            </div>
+            <div class="form-group text-center">
             </div>
             <div class="form-group">
               <div class="row">
                 <div class="col-sm-6 col-sm-offset-3">
-                 <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn ButtonRegister" value="Register Now">
-               </div>
-             </div>
-           </div>
-         </form>
+                  <input type="submit" name="login-submit" id="login-submit" tabindex="4" class="form-control btn ButtonLogin" value="Log In">
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <div class="row">
+                <div class="col-lg-12">
+                </div>
+              </div>
+            </div>
+          </div>
+        </form>
 
+        <?php
+
+        if (isset($_POST['login-submit'])) {
+          include("conn.php");
+          $username = $_POST['username'];
+          $password = $_POST['password'];
+          $booleanLogin = false;
+          $selectQRY = "SELECT * FROM passenger WHERE pass_email = '$username' AND pass_password = '$password';";
+
+          $checkdAcc = mysqli_query($con,$selectQRY);
+          While($row3 = mysqli_fetch_array($checkdAcc)){
+
+            $userid = $row3['PASS_ID'];
+
+            $_SESSION['id'] =  $userid;
+          }
+
+          if (mysqli_num_rows($checkdAcc) > 0) {
+            $booleanLogin = true;
+            $data = mysqli_fetch_assoc( $checkdAcc );
+          }
+          if ($checkdAcc) {
+            if($booleanLogin == true)  {
+              $_SESSION['is_logged'] = true;
+
+              echo '<script type="text/javascript">
+              window.location.href = "http://localhost/PHP_Projie/fragments/Landing.php"
+            </script>';
+          }else{
+            echo "<script> alert('failed') </script>";
+
+          }
+        }
+
+
+      }
+
+      ?>
+
+      <!-- ALERT -->
+      <div class="cd-popup" role="alert">
+        <div class="cd-popup-container">
+          <p>Are you sure you want to delete this element?</p>
+          <ul class="cd-buttons">
+            <li><a href="#0">Yes</a></li>
+            <li><a href="#0">No</a></li>
+          </ul>
+          <a href="#0" class="cd-popup-close img-replace">Close</a>
+        </div> <!-- cd-popup-container -->
+      </div>
+
+      <form id="register-form" action="register.php" method="post" role="form" style="display: none;">
+        <div class="form-group container-fluid">
+          <div class="col-sm-4">
+
+            <label for="">FIRST NAME</label>
+            <input type="text" name="firstname" id="firstname" tabindex="1" class="form-control" placeholder="First Name" value="" required>
+          </div>
+          <div class="col-sm-4">
+
+            <label for="">MIDDLE NAME</label>
+            <input type="text" name="middlename" id="middlename" tabindex="1" class="form-control" placeholder="Middle Name" value="" required>
+          </div>
+          <div class="col-sm-4">
+
+            <label for="lastname">LAST NAME</label>
+            <input type="text" name="lastname" id="lastname" tabindex="1" class="form-control" placeholder="Last Name" value="" required>
+          </div>
+        </div>
+        <div class="form-group container-fluid" >
+          <div class="col-md-4">
+            <label for="age">AGE</label>
+            <select class="form-control" id="age" name="age">
+              <?php for ($i=18; $i < 200 ; $i++) { ?>
+              <option><?php echo "$i";  ?></option>
+              <?php } ?>
+            </select>
+          </div>
+          <div class="col-md-4">
+            <label for="age">GENDER</label>
+            <select class="form-control" id="gender" name="gender">
+              <option>MALE</option>
+              <option>FEMALE</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-group container-fluid">
+          <div class="col-sm-12">
+
+            <label for="">EMAIL</label>
+            <input type="email" name="email" id="email" tabindex="1" class="form-control" placeholder="Email Address" value="" required>
+          </div>
+        </div>
+        <div class="form-group container-fluid">
+          <div class="col-sm-12">
+
+            <label for="">ADDRESS</label>
+            <input type="address" name="address" id="address" tabindex="1" class="form-control" placeholder="Address" value="" required>
+          </div>
+        </div>
+        <div class="form-group container-fluid">
+          <div class="col-sm-10">
+
+            <label for="">PASSWORD</label> <label id="message"></label>
+            <input type="password" name="password_input" id="password_input" tabindex="2" class="form-control" placeholder="Password" required
+            pattern=".{8,}" title="8 characters minimum" onkeyup='check_pass()'>
+          </div>
+          <div class="col-sm-2">
+
+            <button type="button" class="button_login" id="showPass" style="margin-top: 70%;"> <p id="txtShow">Show</p></button>
+          </div>
+        </div>
+        <div class="form-group container-fluid">
+          <div class="col-sm-10">
+            <input type="password" name="confirm-password" id="confirm-password" tabindex="2" class="form-control" placeholder="Confirm Password" required pattern=".{8,}" title="8 characters minimum" onkeyup='check_pass()'>
+          </div>
+          <div class="col-sm-2">
+
+            <button type="button" class="button_login" id="showPass_2" style="margin-top: 20%;"> <p id="txtShow_2">Show</p></button>
+          </div>
+
+        </div>
+        <div class="form-group">
+          <center>
+            <input name="captcha" type="text">
+            <img src="captcha.php" /><br>
+          </center>
+        </div>
+        <div class="form-group">
+          <div class="row">
+            <div class="col-sm-6 col-sm-offset-3">
+             <input type="submit" name="register-submit" id="register-submit" tabindex="4" class="form-control btn ButtonRegister" value="Register Now">
+           </div>
+         </div>
        </div>
-     </div>
+     </form>
+
    </div>
  </div>
 </div>
 </div>
 </div>
-
-<?php 
-if (isset($_POST['validate-submit'])) {
-
-  if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["captcha"])
-  {
-
-    ?>
-
-
-
-    <?php
-    echo "Correct Code Entered";
-  }
-  else
-  {
-    die("Wrong Code Entered");
-  }
-
-}
-?>
+</div>
+</div>
 
 <script>
   function check_pass() {
