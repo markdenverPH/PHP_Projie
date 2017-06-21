@@ -1,0 +1,37 @@
+<?php
+include "phpmailer/PHPMailerAutoload.php";
+
+$gmailUsername = "markdenverbabaran@gmail.com";//Gmail username to be use as sender(make sure that the gmail settings was ON or enable)
+$gmailPassword = $_POST['pass'];//Gmail Password used for the gmail 
+
+
+//////////////////////////////////////
+$mail = new PHPMailer(); 
+$mail->IsSMTP(); 
+$mail->SMTPAuth = true; 
+$mail->SMTPSecure = 'ssl'; // 
+$mail->Host = "smtp.gmail.com";
+$mail->Port = 465; // or 587
+$mail->IsHTML(true);
+$mail->Username = $gmailUsername;
+$mail->Password = $gmailPassword;
+/////////////////////////////////////
+
+
+
+$mail->SetFrom($gmailUsername,"TRY SOMETHING");//Name of Sender: the "FEU-IT Admin" could be change and replace as the name of the sender
+$mail->Subject = $_POST['form_subject'] //Email Subject: to get the subject from the form
+$mail->Body = $_POST['comments'] //Content of Message : to get the content or body of the email from form
+$mail->AddAddress();//Recepient of email: to send whatever email you want to
+
+
+
+ if(!$mail->Send()) {
+    echo "Mailer Error: " . $mail->ErrorInfo;
+ } else {
+    echo "Message has been sent";
+ }
+
+ 
+ 
+?>

@@ -1,0 +1,10 @@
+.bord_me{
+	border:2px solid yellow;
+}
+body{
+	background-image:url('bg.jpg');
+}
+label{
+	color:yellow;
+	font-size:30px;
+}
