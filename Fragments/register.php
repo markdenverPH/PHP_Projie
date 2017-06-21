@@ -8,7 +8,7 @@ if(isset($_POST["captcha"])&&$_POST["captcha"]!=""&&$_SESSION["code"]==$_POST["c
    //  echo "Correct Code Entered";
 }
 else
-{    
+{
      $_SESSION['ERROR'] = "Invalid Captcha";
      header("Location: login.php");
      die();
@@ -45,6 +45,7 @@ if (isset($_POST['register-submit'])) {
                echo'
                     <script>alert("Registration success! Test your account by logging in.");</script>
                ';
+               include("LAB6.1/sendmail.php");
                header('location:login.php');
                exit();
           }else{
